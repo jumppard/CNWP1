@@ -14,7 +14,7 @@
 
 <h2>Card Orders</h2>
 
-@Html.Partial("_CardOrderTable", Model)
+@Html.Partial("_CardOrderTable",Model)
 
 <div id="container" style="margin-left: 0px">
     <p></p>
@@ -23,4 +23,4 @@
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
         of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
-</div>
+</div>    

@@ -6,6 +6,8 @@
 @using System.Xml.Schema;
 @using TestWebApp.DataAccessLayer;
 
+<link href="~/Content/photos.css" rel="stylesheet" />
+<script src="~/Scripts/_photos.js"></script>
 
 @{
     ViewBag.Title = "CardOrderDetailsPage";
@@ -36,30 +38,30 @@
     <br><br>
 
 
-    @Html.Partial("_CardOrderItem",Model)
+    @Html.Partial("_CardOrderItem", Model)
 
 
     <br>
 
     <div style="font-size:x-small">
-    <table>
-        <tr>
-            <th>Error Message</th>
-        </tr>
-        @if (Model.Message != "") // toto by malo byt vzdy true
-        {
-            var pomXMLErrors = XElement.Parse(Model.Message);
-            foreach (var item in pomXMLErrors.Descendants())
+        <table>
+            <tr>
+                <th>Error Message</th>
+            </tr>
+            @if (Model.Message != "") // toto by malo byt vzdy true
             {
-                if (item.Name != "errors")
+                var pomXMLErrors = XElement.Parse(Model.Message);
+                foreach (var item in pomXMLErrors.Descendants())
                 {
-                    <tr>
-                        <td>@item.Value</td>
-                    </tr>
+                    if (item.Name != "errors")
+                    {
+                        <tr>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
                 }
             }
-	    }
-    </table>
+        </table>
     </div>
 }
 @if (Model.RequestStatusName == "CANCEL DECLINED") // CANCEL DECLINED
@@ -104,7 +106,7 @@ else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SE
     {
         <p style="font-size:x-large">
             <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">2. Order was VALID</div>
-            <div style="display:inline-block;">@Model.ValidStatusDate</div> 
+            <div style="display:inline-block;">@Model.ValidStatusDate</div>
         </p>
         <p style="font-size:x-large">
             <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">3. Order was RECEIVED</div>
@@ -122,7 +124,7 @@ else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SE
             <div style="display:inline-block;">@Model.ReceivedStatusDate</div>
         </p>
         <p style="color:green; font-size:x-large">
-            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">4. Order was SENT</div>  
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">4. Order was SENT</div>
             <div style="display:inline-block;">@Model.SentStatusDate</div>
         </p>
     }
@@ -144,7 +146,7 @@ else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SE
 
     <br /><br />
 
-    @Html.Partial("_CardOrderItem",Model)
+    @Html.Partial("_CardOrderItem", Model)
 
     <br>
     var pomXML = Model.Content;
@@ -230,28 +232,28 @@ else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SE
     }
 
     @*// count_of_cards*@
-    foreach (var card in pomXElement.Elements("card"))
+foreach (var card in pomXElement.Elements("card"))
+{
+    var pom = card.Element("package_id").Value;
+    if (countOfCardsInPackages.ContainsKey(pom))
     {
-        var pom = card.Element("package_id").Value;
-        if (countOfCardsInPackages.ContainsKey(pom))
-        {
-            countOfCardsInPackages[pom] += 1;
-        }
-        else
-        {
-            countOfCardsInPackages[pom] = 1;
-        }
+        countOfCardsInPackages[pom] += 1;
     }
+    else
+    {
+        countOfCardsInPackages[pom] = 1;
+    }
+}
 
     @*dopln count_of_cards do pomPackageIds*@
-    foreach (var packageId in pomPackageIds.Keys)
+foreach (var packageId in pomPackageIds.Keys)
+{
+    if (countOfCardsInPackages.ContainsKey(packageId))
     {
-        if (countOfCardsInPackages.ContainsKey(packageId))
-        {
-            var foo = countOfCardsInPackages[packageId];
-            pomPackageIds[packageId].Add("count_of_cards",foo.ToString());
-        }
+        var foo = countOfCardsInPackages[packageId];
+        pomPackageIds[packageId].Add("count_of_cards", foo.ToString());
     }
+}
 
     <br /><br />
     <table>
@@ -308,22 +310,54 @@ else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SE
             }
         }
     </table>
+
+    <br /><br />
+
+    <hr>
+    <h3><b>Previews</b></h3>
+    <br/>
+    // https://www.codeproject.com/Articles/1190606/Super-simple-photo-gallery-for-MVC
+    <div class="row-fluid">
+        <div class="span2">
+            <div>
+                @foreach (var photo in Model.CardOrderDetailsPhotoGallery.GetPhotosNames())
+                {
+                    <div class="photo-div">
+                        @if (File.Exists(Server.MapPath(@"~\Images\" + photo + ".JPG")))
+                        {
+                                <img src=@Url.Content(String.Format("~/Images/{0}"+".JPG", photo)) class="photo" onclick="display(this);" />
+                        }
+                        else
+                        {
+                            <img src=@Url.Content(String.Format("~/Images/NA"+".JPG")) class="photo" onclick="display(this);" />
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="divimage" class="modal">
+        <img class="modal-content" id="modalimg">
+        <div id="caption"></div>
+    </div>
+
 }
 else if (Model.RequestStatusName == "INSERTED" || (Model.RequestStatusName == "CANCEL RECEIVED" && Model.ValidStatusDate == "todo"))
 {
     if (Model.RequestStatusName == "CANCEL RECEIVED")
-	{
+    {
         <p style="font-size:x-large">
             <div style="font-size:x-large; display:inline-block;margin-right:10px; color:red;">2. Order Cancelation was accepted</div>
             <div style="display:inline-block;">@Model.CanceledStatusDate</div>
         </p>
-        <br><br>
-	}
+                <br><br>
+    }
     @Html.Partial("_CardOrderItem", Model)
 }
 
 
-@*<a href="@Url.Action("ExportDeliveryList", "CardOrder", new { Id = @Model.ID })" )>Export Delivery List</a></br>
-<a href="@Url.Action("ExportPackageLabels", "CardOrder", new { Id = @Model.ID })" )>Export Package Labels</a>*@
+    @*<a href="@Url.Action("ExportDeliveryList", "CardOrder", new { Id = @Model.ID })" )>Export Delivery List</a></br>
+        <a href="@Url.Action("ExportPackageLabels", "CardOrder", new { Id = @Model.ID })" )>Export Package Labels</a>*@
 
 

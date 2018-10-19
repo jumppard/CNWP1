@@ -305,6 +305,13 @@ namespace TestWebApp.BusinessLayer
             covm.AttachementId = attachementId == null ? "NULL" : m_cardnetDAL.getConstantPartner().Where(c => c.PartnerId == partnerId && c.ConstantName == "AttachementId" && c.ConstantValue == attachementId).Select(c => c.ConstantDescription).First(); // TODO;
             covm.PackageAttachementId = packageAttachementId == null ? "NULL" : m_cardnetDAL.getConstantPartner().Where(c => c.PartnerId == partnerId && c.ConstantName == "PackageAttachementId" && c.ConstantValue == packageAttachementId).Select(c => c.ConstantDescription).First(); // TODO;
 
+            covm.CarrierTypeIdConstantValue = carrierTypeId1;
+            covm.EnvelopeTypeIdConstantValue = envelopeTypeId;
+            covm.PlasticTypeIdConstantValue = plasticTypeId;
+            covm.AttachementIdConstantValue = attachementId;
+            covm.PackageAttachementIdConstantValue = packageAttachementId;
+            covm.DeliveryListIdConstantValue = deliveryListId;
+
             covm.OrderType = orderType.Substring(0, 3) == "CAN" ? partnerRequestId : "normal";
             covm.RequestStatus = requestStatus;
             covm.RequestStatusName = requestStatus == null ? "INSERTED" : m_cardnetDAL.getConstantUniversals().Where(c=>c.ConstantName == "card_order_state" && c.ConstantValue == requestStatus).Select(c=>c.ConstantDescription).First(); // TODO
@@ -361,7 +368,14 @@ namespace TestWebApp.BusinessLayer
                 covm.RequestStatusName = "CANCELED";
             }
 
-            covm.DeliveryListId = deliveryListId == null ? "NULL" : m_cardnetDAL.getConstantPartner().Where(c=>c.PartnerId == partnerId && c.ConstantName == "DeliveryListId" && c.ConstantValue == deliveryListId).Select(c=>c.ConstantDescription).First();
+            covm.DeliveryListId = deliveryListId == null ? "NULL" : m_cardnetDAL.getConstantPartner().Where(c => c.PartnerId == partnerId && c.ConstantName == "DeliveryListId" && c.ConstantValue == deliveryListId).Select(c => c.ConstantDescription).First();
+
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(carrierTypeId1);
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(envelopeTypeId);
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(attachementId);
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(packageAttachementId);
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(deliveryListId);
+            covm.CardOrderDetailsPhotoGallery.AddPhotoNameToList(plasticTypeId);
 
             return covm;
         }

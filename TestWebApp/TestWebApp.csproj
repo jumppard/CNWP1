@@ -94,12 +94,12 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -378,6 +378,7 @@
       <DependentUpon>RewardoDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CardOrderAnswer.cs" />
+    <Compile Include="Models\CardOrderDetailsPhotoGallery.cs" />
     <Compile Include="Models\CardOrderRequest.cs" />
     <Compile Include="Models\CardStatusUpdateAnswer.cs" />
     <Compile Include="BusinessLayer\CardStatusUpdateEngine.cs" />
@@ -488,6 +489,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\photos.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -527,6 +530,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_photos.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="test1Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -579,6 +583,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Views\ErrorHandler\" />
   </ItemGroup>
   <ItemGroup>

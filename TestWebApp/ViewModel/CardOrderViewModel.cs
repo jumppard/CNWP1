@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
+using TestWebApp.Models;
 
 namespace TestWebApp.ViewModel
 {
@@ -51,5 +52,15 @@ namespace TestWebApp.ViewModel
 
         public string OrderType { get; set; } // {"cancel","normal"}
         public string DeliveryListId { get; set; }
+
+        public string CarrierTypeIdConstantValue { get; set; }
+        public string EnvelopeTypeIdConstantValue { get; set; }
+        public string PlasticTypeIdConstantValue { get; set; }
+        public string AttachementIdConstantValue { get; set; }
+        public string PackageAttachementIdConstantValue { get; set; }
+        public string DeliveryListIdConstantValue { get; set; }
+
+        public CardOrderDetailsPhotoGallery CardOrderDetailsPhotoGallery = new CardOrderDetailsPhotoGallery();
+
     }
 }

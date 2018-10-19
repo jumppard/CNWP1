@@ -36,6 +36,7 @@ namespace TestWebApp.Controllers
             IPagedList<CardOrderViewModel> co = null;
             co = colvm.colVm.ToPagedList(pageIndex, pageSize);
 
+            var gitTest = "B";
 
             return View("Index",/*colvm*/co);
         }
