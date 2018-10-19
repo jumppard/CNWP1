@@ -1,0 +1,47 @@
+﻿@using TestWebApp.ViewModel
+@model RewardoCardListViewModel
+
+@{
+    ViewBag.Title = "ShowCardsInPackage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CARDS IN PACKAGE</h2>
+
+<div style="font-size:x-large; color:@Model.infoColor">
+    @Model.info
+</div>
+<br>
+
+<table>
+    <tr style="background-color:#cccccc;color:#000000;font-weight:bold;">
+        <td colspan="3">Package Info</td>
+    </tr>
+    <tr>
+        <th>Order ID</th>
+        <td style="padding-left: 1.5rem;">@Model.orderId</td>
+    </tr>
+    <tr>
+        <th>Package ID</th>
+        <td style="padding-left: 1.5rem;">@Model.packageId</td>
+    </tr>
+</table>
+<br>
+<table>
+    <tr style="background-color:#cccccc;color:#000000;font-weight:bold;">
+        <td colspan="3">Cards in Package</td>
+    </tr>
+    <tr>
+        <th>CCCN</th>
+        <th style="padding-left: 1.5rem;">CARD NUMBER</th>
+    </tr>
+    
+    @foreach (var item in Model.rclvm)
+    {
+        <tr>
+            <td>@item.CardCRMId</td>
+            <td style="padding-left: 1.5rem;">@item.Cardno</td>
+        </tr>
+    }
+</table>    
+

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!-- ROOT element -->
+  <xs:element name='card_order_request' >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name='order_id' type='xs:string' />
+        <xs:element name='card_type' type='xs:short' />
+        <xs:element name='valid_to' type='xs:date' />
+
+        <xs:element name='carrier_type_id'  type='CodeListType'/>
+        <xs:element name='envelope_type_id' type='CodeListType'/>
+        <xs:element name='plastic_type_id'  type='CodeListType'/>
+        <xs:element name='attachement_id'   type='CodeListType'/>
+        <xs:element name='package_attachement_id' type='CodeListType'/>
+        <xs:element name='delivery_list_id' type='CodeListType'/>
+
+        <xs:element name='card' type='CardOrderType' maxOccurs='unbounded' />
+
+        <xs:element name='carrier' type='CarrierType' maxOccurs='unbounded' />
+        <xs:element name='envelope' type='EnvelopeType' maxOccurs='unbounded' />
+        <xs:element name='package_distribution' type='PackageDistributionType' maxOccurs='unbounded' />
+      </xs:sequence>
+    </xs:complexType>
+
+    <!-- KEY REFFERENCES -->
+    <xs:key name='PackageIdKey'>
+      <xs:selector xpath='package_distribution' />
+      <xs:field xpath='@package_id' />
+    </xs:key>
+    <xs:keyref name='PackageIdRefKey' refer='PackageIdKey'>
+      <xs:selector xpath='card' />
+      <xs:field xpath='package_id' />
+    </xs:keyref>
+
+    <xs:key name='EnvelopeIdKey'>
+      <xs:selector xpath='envelope' />
+      <xs:field xpath='@envelope_id' />
+    </xs:key>
+    <xs:keyref name='EnvelopeIdRefKey' refer='EnvelopeIdKey'>
+      <xs:selector xpath='card/print' />
+      <xs:field xpath='envelope_id' />
+    </xs:keyref>
+
+    <xs:key name='CarrierIdKey'>
+      <xs:selector xpath='carrier' />
+      <xs:field xpath='@carrier_id' />
+    </xs:key>
+    <xs:keyref name='CarrierIdRefKey' refer='CarrierIdKey'>
+      <xs:selector xpath='card/print' />
+      <xs:field xpath='carrier_id' />
+    </xs:keyref>
+
+    <!-- /KEY REFFERENCES -->
+
+    <!-- UNIQUE KEYS -->
+    <xs:unique name='CardIDUniqueKey'>
+      <xs:selector xpath='card' />
+      <xs:field xpath='card_id' />
+    </xs:unique>
+    <!--<xs:unique name='CarrierIDUniqueKey'>
+      <xs:selector xpath='card/print' />
+      <xs:field xpath='carrier_id' />
+    </xs:unique>-->
+    <xs:unique name="PackageId_OrderInPackageUniquePairKey">
+      <xs:selector xpath="card"/>
+      <xs:field xpath="package_id"/>
+      <xs:field xpath="order_in_package"/>
+    </xs:unique>
+    <!-- /UNIQUE KEYS -->
+
+  </xs:element>
+
+  <!-- definuje zaznam karty -->
+  <xs:complexType name='CardOrderType'>
+    <xs:sequence>
+      <xs:element name='card_id' type='xs:long' />
+      <xs:element name='package_id' type='xs:unsignedInt' />
+      <!-- id adresy odkazujuca na atribut #id v <package_distribution> -->
+      <xs:element name='order_in_package' type='xs:unsignedInt' />
+      <xs:element name='card_rows' type='CardRowsType' minOccurs='0' />
+      <xs:element name='delivery_list' type='DeliveryListType' minOccurs='0' />
+      <xs:element name='accounts' type='CardAccountsType' />
+      <xs:element name='print' type='CardPrintType' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- informacie vytlacene priamo na karte -->
+  <xs:complexType name='CardRowsType'>
+    <xs:sequence>
+      <xs:element name='card_row1' type='CardRow1Type' minOccurs='0' />
+      <!-- EMV STANDARD -->
+      <xs:element name='card_row2' type='CardRow2Type' minOccurs='0' />
+      <!-- REWARDO EXTENSION / NOT EMV -->
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeliveryListType">
+    <xs:sequence>
+      <!--<xs:element name="dl_column2" type="CardPrintItemType">
+        <xs:annotation>
+          <xs:documentation>Osobní číslo zaměstnance</xs:documentation>
+        </xs:annotation>
+      </xs:element>-->
+      <xs:element name="dl_column2" type="CardPrintItemType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Osobní číslo zaměstnance</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dl_column3" type="CardPrintItemType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Jméno a příjmení zaměstnance</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dl_column4" type="CardPrintItemType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Oddělení</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- container/wrapper of card accounts -->
+  <xs:complexType name='CardAccountsType'>
+    <xs:sequence>
+      <xs:element name='account' type="CardAccountType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- card specific account -->
+  <xs:complexType name='CardAccountType'>
+    <xs:sequence>
+      <xs:element name='acc_id' type='xs:unsignedInt' />
+      <xs:element name='acc_daily_limit' type='xs:unsignedInt' minOccurs='0' />
+      <xs:element name='acc_transaction_limit' type='xs:unsignedInt' minOccurs='0' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- pomocou "IDciek" definuje odkazy na carrier, envelope, package_distribution -->
+  <xs:complexType name='CardPrintType'>
+    <xs:sequence>
+      <xs:element name='carrier_id' type='xs:unsignedInt' />
+      <xs:element name='envelope_id' type='xs:unsignedInt' />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- definuje vytlacene riadky na carrier-i -->
+  <xs:complexType name='CarrierType'>
+    <xs:sequence>
+      <xs:element name='carrier_row1' type='CarrierWindowType' />
+      <xs:element name='carrier_row2' type='CarrierWindowType' />
+      <xs:element name='carrier_row3' type='CarrierWindowType' />
+      <xs:element name='carrier_row4' type='CarrierWindowType' />
+      <xs:element name='carrier_row5' type='CarrierWindowType' />
+      <xs:element name='carrier_row6' type='CarrierWindowTypeRow6' />
+      <xs:element name='carrier_row7' type='CarrierLeftDownPlaceType' />
+      <xs:element name='carrier_row8' type='CarrierLeftDownPlaceType' />
+      <xs:element name='carrier_row9' type='CarrierLeftDownPlaceType' />
+      <xs:element name='carrier_row10' type='CarrierLeftDownPlaceType' />
+      <xs:element name='carrier_row11' type='CarrierLeftDownPlaceType' />
+      <xs:element name='carrier_row12' type='CarrierLeftDownPlaceMoreRowsType' />
+      <xs:element name='carrier_row13' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row14' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row15' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row16' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row17' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row18' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row19' type='CardPrintItemType' minOccurs='0'/>
+      <xs:element name='carrier_row20' type='CardPrintItemType' minOccurs='0'/>
+    </xs:sequence>
+    <xs:attribute name='carrier_id' type='xs:unsignedInt' use="required" />
+  </xs:complexType>
+
+  <!-- definuje vytlacene riadky na obalke -->
+  <xs:complexType name='EnvelopeType'>
+    <xs:sequence>
+      <xs:element name="envelope_row1" type="CardPrintItemType" minOccurs="0"/>
+      <xs:element name="envelope_row2" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row3" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row4" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row5" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row6" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row7" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row8" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row9" type="CardPrintItemType" minOccurs="0" />
+      <xs:element name="envelope_row10" type="CardPrintItemType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name='envelope_id' type='xs:unsignedInt' use="required" />
+  </xs:complexType>
+
+  <!-- definuje rozhranie pre odoslanie baliku (adresa, prepravca, typ prepravy) -->
+  <xs:complexType name='PackageDistributionType'>
+    <xs:sequence>
+      <xs:element name='carrier'>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="aaa_CR1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name='carrier_type'>
+        <xs:simpleType>
+          <xs:restriction base="xs:unsignedByte">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="package_type_id">
+        <xs:annotation>
+          <xs:documentation>Typ obalu zásilky</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+            <xs:minLength value="7"/>
+            <xs:enumeration value="aaa_PK20"/>
+            <xs:enumeration value="aaa_PK50"/>
+            <xs:enumeration value="aaa_PK100"/>
+            <xs:enumeration value="aaa_PK1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="home_delivery" type="xs:boolean">
+        <xs:annotation>
+          <xs:documentation>Flag určující soukromou adresu</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="package_address">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="PackageAddressType"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="delivery_list" type="DeliveryListHeadType"/>
+    </xs:sequence>
+    <xs:attribute name='package_id' type='xs:unsignedInt' use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="PackageAddressType">
+    <xs:sequence>
+      <xs:element name="address_recipient" type="CardPrintItemType"/>
+      <xs:element name="address_person" type="xs:string" minOccurs="0"/>
+      <xs:element name="address_phone" type="AddressPhoneType" minOccurs="0"/>
+      <xs:element name="address_country" type="CardPrintItemType"/>
+      <xs:element name="address_city_zip" type="CardPrintItemType"/>
+      <xs:element name="address_street" type="xs:string"/>
+      <xs:element name="address_street_number" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DeliveryListHeadType">
+    <xs:sequence>
+      <xs:element name="dl_row1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Číslo zásilky</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dl_row2" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Zodpovědné osoby</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dl_row3" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Číslo objednávky</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dl_row4" type="xs:string" />
+      <!-- Kód zásilky  -->
+      <xs:element name="dl_row5" type="xs:string" />
+      <!-- Datum objednavky -->
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name='CardRow1Type'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="26"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='CardRow2Type'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="40"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- definuje pocet znakov na riadku papiera velkost A4 -->
+  <xs:simpleType name='CardPrintItemType'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="78"/>
+      <!-- na 1 riadok A4 Word dokumentu pri 12pt fonte sa zmesti 78 znakov -->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- definuje pocet znakov na riadku v okienku carriera -->
+  <xs:simpleType name='CarrierWindowType'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- definuje pocet znakov na riadku v okienku carriera -->
+  <xs:simpleType name='CarrierWindowTypeRow6'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='CarrierLeftDownPlaceType'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='CarrierLeftDownPlaceMoreRowsType'>
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='CodeListType'>
+    <xs:restriction base="xs:string">
+      <xs:minLength  value = "7"/>
+      <xs:maxLength  value = "100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='AddressPhoneType'>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[+]?[0-9 \-]{1,30}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+

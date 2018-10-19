@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/06/2017 13:00:35" ReportInfo.Modified="01/23/2018 10:48:54" ReportInfo.CreatorVersion="2017.3.0.0">
+  <Dictionary>
+    <XmlDataConnection Name="Connection" ConnectionString="rijcmlq7LTHf82AwQnRQP3WRrJEMX4N25R1vK1aPHSFyOIPkeaB0/YCRQXJpCnyEazsgn0hB9ABLSJwxsWaA+/0blvTSYd5SC/CrU1iIMUblJP2n8Ma7NxasRI0qKrn6FohKIpQcM8Q+J005Ci/zbje+/94Ew==">
+      <TableDataSource Name="carrier" DataType="System.Int32" PropName="carrier1" Enabled="true" TableName="carrier">
+        <Column Name="carrier_row1" DataType="System.String"/>
+        <Column Name="carrier_row2" DataType="System.String"/>
+        <Column Name="carrier_row3" DataType="System.String"/>
+        <Column Name="carrier_row4" DataType="System.String"/>
+        <Column Name="carrier_row5" DataType="System.String"/>
+        <Column Name="carrier_row6" DataType="System.String"/>
+        <Column Name="carrier_row7" DataType="System.String"/>
+        <Column Name="carrier_row8" DataType="System.String"/>
+        <Column Name="carrier_row9" DataType="System.String"/>
+        <Column Name="carrier_row10" DataType="System.String"/>
+        <Column Name="carrier_row11" DataType="System.String"/>
+        <Column Name="carrier_row12" DataType="System.String"/>
+        <Column Name="carrier_id" DataType="System.String"/>
+        <Column Name="card_id" DataType="System.String"/>
+        <Column Name="card_order_request_Id" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15">
+    <DataBand Name="Data1" Width="793.8" Height="1067.85" StartNewPage="true" FirstRowStartsNewPage="true" DataSource="carrier">
+      <TextObject Name="Text1" Left="396.9" Top="117.18" Width="349.65" Height="18.9" CanGrow="true" Text="[carrier.carrier_row1]" WordWrap="false"/>
+      <TextObject Name="Text2" Left="396.9" Top="136.08" Width="349.65" Height="18.9" Text="[carrier.carrier_row2]" WordWrap="false"/>
+      <TextObject Name="Text3" Left="396.9" Top="154.98" Width="349.65" Height="18.9" Text="[carrier.carrier_row3]" WordWrap="false"/>
+      <TextObject Name="Text4" Left="396.9" Top="173.88" Width="349.65" Height="18.9" Text="[carrier.carrier_row4]" WordWrap="false"/>
+      <TextObject Name="Text5" Left="576.45" Top="211.68" Width="170.1" Height="18.9" Text="[carrier.carrier_row6]" WordWrap="false"/>
+      <TextObject Name="Text8" Left="396.9" Top="192.78" Width="349.65" Height="18.9" Text="[carrier.carrier_row5]" WordWrap="false"/>
+      <TextObject Name="Text6" Left="85.05" Top="746.55" Width="292.95" Height="18.9" Text="[carrier.carrier_row7]" WordWrap="false"/>
+      <TextObject Name="Text9" Left="85.05" Top="765.45" Width="292.95" Height="18.9" Text="[carrier.carrier_row8]" WordWrap="false"/>
+      <TextObject Name="Text10" Left="85.05" Top="784.35" Width="292.95" Height="18.9" Text="[carrier.carrier_row9]" WordWrap="false"/>
+      <TextObject Name="Text11" Left="85.05" Top="803.25" Width="292.95" Height="18.9" Text="[carrier.carrier_row10]" WordWrap="false"/>
+      <TextObject Name="Text12" Left="85.05" Top="822.15" Width="292.95" Height="18.9" Text="[carrier.carrier_row11]" WordWrap="false"/>
+      <TextObject Name="Text13" Left="85.05" Top="841.05" Width="292.95" Height="103.95" Text="[carrier.carrier_row12]"/>
+      <TextObject Name="Text7" Left="481.95" Top="963.9" Width="113.4" Height="18.9" Text="[carrier.card_id]"/>
+    </DataBand>
+  </ReportPage>
+</Report>

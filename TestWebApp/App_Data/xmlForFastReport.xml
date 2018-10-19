@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<card_order_request>
+  <order_id>test</order_id>
+  <card_type>1</card_type>
+  <valid_to>2020-03-09</valid_to>
+  <carrier_type_id>bbb_CA1</carrier_type_id>
+  <envelope_type_id>bbb_EN1</envelope_type_id>
+  <plastic_type_id>bbb_PL1</plastic_type_id>
+  <attachement_id>bbb_AT1</attachement_id>
+  <package_attachement_id>bbb_PA1</package_attachement_id>
+  <delivery_list_id>bbb_DN1</delivery_list_id>
+  <card>
+    <card_id>120</card_id>
+    <package_id>97</package_id>
+    <order_in_package>1</order_in_package>
+    <card_rows>
+      <card_row1>test1</card_row1>
+      <card_row2>test1</card_row2>
+    </card_rows>
+    <delivery_list>
+      <dl_column2>t</dl_column2>
+      <dl_column3>t</dl_column3>
+      <dl_column4>t</dl_column4>
+    </delivery_list>
+    <limits>
+      <daily_limit>500</daily_limit>
+      <transaction_limit>500</transaction_limit>
+    </limits>
+    <print>
+      <carrier_id>24</carrier_id>
+      <envelope_id>1</envelope_id>
+    </print>
+  </card>
+  <card>
+    <card_id>121</card_id>
+    <package_id>98</package_id>
+    <order_in_package>1</order_in_package>
+    <card_rows>
+      <card_row1>test1</card_row1>
+      <card_row2>test1</card_row2>
+    </card_rows>
+    <delivery_list>
+      <dl_column2>t</dl_column2>
+      <dl_column3>t</dl_column3>
+      <dl_column4>t</dl_column4>
+    </delivery_list>
+    <limits>
+      <daily_limit>500</daily_limit>
+      <transaction_limit>500</transaction_limit>
+    </limits>
+    <print>
+      <carrier_id>24</carrier_id>
+      <envelope_id>1</envelope_id>
+    </print>
+  </card>
+  <card>
+    <card_id>122</card_id>
+    <package_id>97</package_id>
+    <order_in_package>2</order_in_package>
+    <card_rows>
+      <card_row1>test1</card_row1>
+      <card_row2>test1</card_row2>
+    </card_rows>
+    <delivery_list>
+      <dl_column2>t</dl_column2>
+      <dl_column3>t</dl_column3>
+      <dl_column4>t</dl_column4>
+    </delivery_list>
+    <limits>
+      <daily_limit>500</daily_limit>
+      <transaction_limit>500</transaction_limit>
+    </limits>
+    <print>
+      <carrier_id>24</carrier_id>
+      <envelope_id>1</envelope_id>
+    </print>
+  </card>
+  <carrier carrier_id="24" card_id="122">
+    <carrier_row1>Karel2 Příhoda2</carrier_row1>
+    <carrier_row2>CS06</carrier_row2>
+    <carrier_row3 />
+    <carrier_row4>Praha</carrier_row4>
+    <carrier_row5 />
+    <carrier_row6>Karta 1 z 2</carrier_row6>
+    <carrier_row7 />
+    <carrier_row8>Autorizační kód:</carrier_row8>
+    <carrier_row9 />
+    <carrier_row10>5GDFBP</carrier_row10>
+    <carrier_row11 />
+    <carrier_row12>Autorizační kód použijte pro první přihlášení na portal.gustokarta.cz. Pokud se nebude možné přihlásit, požádejte prosím zodpovědnou osobu o kontrolu objendávky v systému.</carrier_row12>
+  </carrier>
+  <carrier carrier_id="25">
+    <carrier_row1>Karel2 Náhoda</carrier_row1>
+    <carrier_row2>CS06</carrier_row2>
+    <carrier_row3 />
+    <carrier_row4>Praha</carrier_row4>
+    <carrier_row5 />
+    <carrier_row6>Karta 1 z 2</carrier_row6>
+    <carrier_row7 />
+    <carrier_row8>Autorizační kód:</carrier_row8>
+    <carrier_row9 />
+    <carrier_row10>5GDFBP</carrier_row10>
+    <carrier_row11 />
+    <carrier_row12>Autorizační kód použijte pro první přihlášení na portal.gustokarta.cz. Pokud se nebude možné přihlásit, požádejte prosím zodpovědnou osobu o kontrolu objendávky v systému.</carrier_row12>
+  </carrier>
+  <carrier carrier_id="26">
+    <carrier_row1>Karel2 Záloha</carrier_row1>
+    <carrier_row2>CS06</carrier_row2>
+    <carrier_row3 />
+    <carrier_row4>Praha</carrier_row4>
+    <carrier_row5 />
+    <carrier_row6>Karta 1 z 2</carrier_row6>
+    <carrier_row7 />
+    <carrier_row8>Autorizační kód:</carrier_row8>
+    <carrier_row9 />
+    <carrier_row10>5GDFBP</carrier_row10>
+    <carrier_row11 />
+    <carrier_row12>Autorizační kód použijte pro první přihlášení na portal.gustokarta.cz. Pokud se nebude možné přihlásit, požádejte prosím zodpovědnou osobu o kontrolu objendávky v systému.</carrier_row12>
+  </carrier>
+  <carrier carrier_id="27">
+    <carrier_row1>Karel2 Mátoha</carrier_row1>
+    <carrier_row2>CS06</carrier_row2>
+    <carrier_row3 />
+    <carrier_row4>Praha</carrier_row4>
+    <carrier_row5 />
+    <carrier_row6>Karta 1 z 2</carrier_row6>
+    <carrier_row7 />
+    <carrier_row8>Autorizační kód:</carrier_row8>
+    <carrier_row9 />
+    <carrier_row10>5GDFBP</carrier_row10>
+    <carrier_row11 />
+    <carrier_row12>Autorizační kód použijte pro první přihlášení na portal.gustokarta.cz. Pokud se nebude možné přihlásit, požádejte prosím zodpovědnou osobu o kontrolu objendávky v systému.</carrier_row12>
+  </carrier>
+  <carrier carrier_id="28">
+    <carrier_row1>Karel2 Fantomas</carrier_row1>
+    <carrier_row2>CS06</carrier_row2>
+    <carrier_row3 />
+    <carrier_row4>Praha</carrier_row4>
+    <carrier_row5 />
+    <carrier_row6>Karta 1 z 2</carrier_row6>
+    <carrier_row7 />
+    <carrier_row8>Autorizační kód:</carrier_row8>
+    <carrier_row9 />
+    <carrier_row10>5GDFBP</carrier_row10>
+    <carrier_row11 />
+    <carrier_row12>Autorizační kód použijte pro první přihlášení na portal.gustokarta.cz. Pokud se nebude možné přihlásit, požádejte prosím zodpovědnou osobu o kontrolu objendávky v systému.</carrier_row12>
+  </carrier>
+  <envelope envelope_id="1">
+    <envelope_row1>Obálka</envelope_row1>
+  </envelope>
+  <package_distribution package_id="97">
+    <carrier>aaa_CR1</carrier>
+    <carrier_type>1</carrier_type>
+    <package_type_id>aaa_PK20</package_type_id>
+    <home_delivery>false</home_delivery>
+    <package_address>
+      <address_recipient>Spolek [pro]Test!, professional testers</address_recipient>
+      <address_person>Pavlína Jantarová</address_person>
+      <address_country>Česko</address_country>
+      <address_city_zip>140 00 Praha</address_city_zip>
+      <address_street>Pujmanové</address_street>
+      <address_street_number>886/17</address_street_number>
+    </package_address>
+    <delivery_list>
+      <dl_row1>224</dl_row1>
+      <dl_row2>Pavlína Jantarová</dl_row2>
+      <dl_row3>R17A0119</dl_row3>
+      <dl_row4>TPC46A</dl_row4>
+      <dl_row5>2017-03-24T11:24:03+01:00</dl_row5>
+    </delivery_list>
+  </package_distribution>
+  <package_distribution package_id="99">
+    <carrier>aaa_CR1</carrier>
+    <carrier_type>1</carrier_type>
+    <package_type_id>aaa_PK20</package_type_id>
+    <home_delivery>true</home_delivery>
+    <package_address>
+      <address_recipient>Spolek [pro]Test!, professional testers</address_recipient>
+      <address_person>Pavlína Jantarová</address_person>
+      <address_country>Madarsko</address_country>
+      <address_city_zip>140 00 Praha</address_city_zip>
+      <address_street>Pujmanové</address_street>
+      <address_street_number>886/17</address_street_number>
+    </package_address>
+    <delivery_list>
+      <dl_row1>224</dl_row1>
+      <dl_row2>Pavlína Jantarová</dl_row2>
+      <dl_row3>R17A0119</dl_row3>
+      <dl_row4>TPC46A</dl_row4>
+      <dl_row5>2017-03-24T11:24:03+01:00</dl_row5>
+    </delivery_list>
+  </package_distribution>
+  <package_distribution package_id="98">
+    <carrier>aaa_CR1</carrier>
+    <carrier_type>1</carrier_type>
+    <package_type_id>aaa_PK20</package_type_id>
+    <home_delivery>false</home_delivery>
+    <package_address>
+      <address_recipient>Spolek [pro]Test!, professional testers</address_recipient>
+      <address_person>Pavlína Jantarová</address_person>
+      <address_country>Slovensko</address_country>
+      <address_city_zip>140 00 Praha</address_city_zip>
+      <address_street>Pujmanové</address_street>
+      <address_street_number>886/17</address_street_number>
+    </package_address>
+    <delivery_list>
+      <dl_row1>224</dl_row1>
+      <dl_row2>Pavlína Jantarová</dl_row2>
+      <dl_row3>R17A0119</dl_row3>
+      <dl_row4>TPC46A</dl_row4>
+      <dl_row5>2017-03-24T11:24:03+01:00</dl_row5>
+    </delivery_list>
+  </package_distribution>
+</card_order_request>

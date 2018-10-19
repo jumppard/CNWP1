@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1EDF378-19E5-459E-840D-7387FEA03E7C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestWebApp</RootNamespace>
+    <AssemblyName>TestWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FastReport, Version=2017.3.0.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\FastReports\FastReport.Net\Framework 4.0\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="GenerateNewXMLForFastReport_classLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GenerateNewXMLForFastReportClassLibrary\GenerateNewXMLForFastReport_classLibrary\bin\Debug\GenerateNewXMLForFastReport_classLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vereyon.Web.FlashMessage, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vereyon.Web.FlashMessage.1.0.1\lib\net40\Vereyon.Web.FlashMessage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BusinessLayer\CardOrderEngine.cs" />
+    <Compile Include="BusinessLayer\CarriersExportEngine\AppEngine.cs" />
+    <Compile Include="BusinessLayer\CarriersExportEngine\CarriersExportEngine.cs" />
+    <Compile Include="BusinessLayer\CarriersExportEngine\ExportedFileNameBuilder.cs" />
+    <Compile Include="BusinessLayer\CarriersExportEngine\MyFastReport.cs" />
+    <Compile Include="BusinessLayer\HomePageEngine.cs" />
+    <Compile Include="BusinessLayer\IReqAnsEngine.cs" />
+    <Compile Include="BusinessLayer\RewardoEngine.cs" />
+    <Compile Include="BusinessLayer\TableEngine.cs" />
+    <Compile Include="CALLCENTER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CALLERINFORMATION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CALLRECORD.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGN.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNBLACKLIST.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNCRITERION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNCUSTOMER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNHISTORY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNLIMIT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNMESSAGE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNPOINT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAMPAIGNRFM.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARD.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARDPOOL.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARDPOOLDETAIL.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARDPRODUCT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARD_EXTRA.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARD_PIN_STATUS.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CARD_TRANSFER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CITY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONSTANT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CONTACTINFO.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CardOrderController.cs" />
+    <Compile Include="Controllers\CardStatusUpdateController.cs" />
+    <Compile Include="Controllers\CardTransferController.cs" />
+    <Compile Include="Controllers\CreditOrderController.cs" />
+    <Compile Include="Controllers\ErrorHandlerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PosAcceptanceController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
+    <Compile Include="CORPORATECUSTOMER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CORPORATECUSTOMERCONTRACT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COUNTRY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="COUNTY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMERPRIVATECHILDINFO.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMERPRIVATEINFO.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___CARD.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___CONSTANT_PARTNER.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___CONSTANT_UNIVERSAL.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___EXPORT_MAP.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___HOLIDAY.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___PARTNER.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___PARTNER_TYPE.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS001.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS002.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS003.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS004.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS005.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS006.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS007.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____ANS008.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____REQ001.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____REQ002.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____REQ003.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____REQ004.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____REQ008.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C____TEMP002.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccessLayer\CardnetDAL.cs" />
+    <Compile Include="DataAccessLayer\RewardoDAL.cs" />
+    <Compile Include="FINANCIALINFO.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LANGUAGE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOCALIZEDPROPERTY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOCALSTRINGRESOURCE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MERCHANT.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MERCHANT_BALANCE_PERIOD.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MERCHANT_CARDTYPE_PERMISSION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MERCHANT_CATEGORY_CODE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MERCHANT_CATEGORY_GROUP.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CardOrderAnswer.cs" />
+    <Compile Include="Models\CardOrderRequest.cs" />
+    <Compile Include="Models\CardStatusUpdateAnswer.cs" />
+    <Compile Include="BusinessLayer\CardStatusUpdateEngine.cs" />
+    <Compile Include="Models\CardStatusUpdateRequest.cs" />
+    <Compile Include="Models\CardTransferAnswer.cs" />
+    <Compile Include="BusinessLayer\CardTransferEngine.cs" />
+    <Compile Include="Models\CardTransferRequest.cs" />
+    <Compile Include="Models\ConstantPartner.cs" />
+    <Compile Include="Models\ConstantUniversal.cs" />
+    <Compile Include="Models\CreditOrderAnswer.cs" />
+    <Compile Include="BusinessLayer\CreditOrderEngine.cs" />
+    <Compile Include="Models\CreditOrderRequest.cs" />
+    <Compile Include="Models\Partner.cs" />
+    <Compile Include="Models\PosAcceptanceAnswer.cs" />
+    <Compile Include="BusinessLayer\PosAcceptanceEngine.cs" />
+    <Compile Include="Models\PosAcceptanceRequest.cs" />
+    <Compile Include="Models\RewardoCard.cs" />
+    <Compile Include="Models\RewardoCardProduct.cs" />
+    <Compile Include="Models\RewardoConstant.cs" />
+    <Compile Include="Models\RewardoOrganization.cs" />
+    <Compile Include="ORGANIZATION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAGE_PERMISSION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSERRORCODE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POSTAG.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PREFERENCEDATA.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PREFERENCEOPTION.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RESPONSE_CODES.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RewardoDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RewardoDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RewardoDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RewardoDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RewardoDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SECURITYPOLICY.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test1Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test1Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test1Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="test1Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test1Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="USER.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USERTEMPLATE.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USERTEMPLATE_PAGE_MAP.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USER_ORGANIZATION_MAP.cs">
+      <DependentUpon>RewardoDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\CardOrderListViewModel.cs" />
+    <Compile Include="ViewModel\CardOrderViewModel.cs" />
+    <Compile Include="ViewModel\CardStatusUpdateListViewModel.cs" />
+    <Compile Include="ViewModel\CardStatusUpdateViewModel.cs" />
+    <Compile Include="ViewModel\CardTransferListViewModel.cs" />
+    <Compile Include="ViewModel\CardTransferViewModel.cs" />
+    <Compile Include="ViewModel\CreditOrderListViewModel.cs" />
+    <Compile Include="ViewModel\CreditOrderViewModel.cs" />
+    <Compile Include="ViewModel\HomePageViewModel.cs" />
+    <Compile Include="ViewModel\PosAcceptanceListViewModel.cs" />
+    <Compile Include="ViewModel\PosAcceptanceViewModel.cs" />
+    <Compile Include="ViewModel\RewardoCardListViewModel.cs" />
+    <Compile Include="ViewModel\RewardoCardProductListViewModel.cs" />
+    <Compile Include="ViewModel\RewardoCardProductViewModel.cs" />
+    <Compile Include="ViewModel\RewardoCardViewModel.cs" />
+    <Compile Include="ViewModel\TablesViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="RewardoDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RewardoDB.edmx</DependentUpon>
+      <LastGenOutput>RewardoDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="RewardoDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RewardoDB.edmx</DependentUpon>
+      <LastGenOutput>RewardoDB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="RewardoDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RewardoDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="RewardoDB.edmx.diagram">
+      <DependentUpon>RewardoDB.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\IISProfileHost.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfileHost_1.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="test1Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>test1Model.edmx</DependentUpon>
+      <LastGenOutput>test1Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="test1Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>test1Model.edmx</DependentUpon>
+      <LastGenOutput>test1Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\CardOrder\Index.cshtml" />
+    <Content Include="Views\Table\Index.cshtml" />
+    <Content Include="Views\PosAcceptance\Index.cshtml" />
+    <Content Include="Views\CreditOrder\Index.cshtml" />
+    <Content Include="Views\CardStatusUpdate\Index.cshtml" />
+    <Content Include="Views\CardTransfer\_CardTransferTable.cshtml" />
+    <Content Include="Views\CardOrder\OpenOrder.cshtml" />
+    <Content Include="Views\CardOrder\ShowCardsInPackage.cshtml" />
+    <EntityDeploy Include="test1Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>test1Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="test1Model.edmx.diagram">
+      <DependentUpon>test1Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\_CardOrderTable.cshtml" />
+    <Content Include="Views\CardOrder\_HeaderPackages.cshtml" />
+    <Content Include="Views\PosAcceptance\_PosAcceptanceTable.cshtml" />
+    <Content Include="Views\CreditOrder\_CreditOrderTable.cshtml" />
+    <Content Include="Views\CardStatusUpdate\_CardStatusUpdateTable.cshtml" />
+    <Content Include="Views\Shared\_CardOrderItem.cshtml" />
+    <Content Include="Views\CardTransfer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\ErrorHandler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeliveryListGenerationApp\DeliveryListGenerationApp.csproj">
+      <Project>{69acf182-fa4a-4c20-94e3-17c69c3090fc}</Project>
+      <Name>DeliveryListGenerationApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58355</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:58356/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,329 @@
+﻿@using TestWebApp.ViewModel
+@using Vereyon.Web;
+@model CardOrderViewModel
+
+@using System.Xml.Linq;
+@using System.Xml.Schema;
+@using TestWebApp.DataAccessLayer;
+
+
+@{
+    ViewBag.Title = "CardOrderDetailsPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Card Order Details</h2>
+@Html.RenderFlashMessages()
+
+<br>
+
+@{
+    var m_cardnetDAL = new CardnetDAL();
+    m_cardnetDAL.retrieveConstantPartners();
+}
+
+<p style="font-size:x-large">
+    <div style="font-size:x-large; display:inline-block;margin-right:10px;">1. Order was CREATED </div>
+    <div style="display:inline-block;">@Model.CreationDateTime</div>
+</p>
+
+@if (Model.RequestStatusName == "DECLINED") // DECLINED
+{
+    <p style="font-size:x-large">
+        <div style="font-size:x-large; display:inline-block;margin-right:10px; color:red;">2. Order was DECLINED</div>
+        <div style="display:inline-block;">@Model.DeclinedStatusDate</div>
+    </p>
+    <br><br>
+
+
+    @Html.Partial("_CardOrderItem",Model)
+
+
+    <br>
+
+    <div style="font-size:x-small">
+    <table>
+        <tr>
+            <th>Error Message</th>
+        </tr>
+        @if (Model.Message != "") // toto by malo byt vzdy true
+        {
+            var pomXMLErrors = XElement.Parse(Model.Message);
+            foreach (var item in pomXMLErrors.Descendants())
+            {
+                if (item.Name != "errors")
+                {
+                    <tr>
+                        <td>@item.Value</td>
+                    </tr>
+                }
+            }
+	    }
+    </table>
+    </div>
+}
+@if (Model.RequestStatusName == "CANCEL DECLINED") // CANCEL DECLINED
+{
+    <p style="font-size:x-large">
+        <div style="font-size:x-large; display:inline-block;margin-right:10px; color:red;">3. Order was DECLINED</div>
+        <div style="display:inline-block;">@Model.CancelDeclinedStatusDate</div>
+    </p>
+    <br><br>
+
+
+    @Html.Partial("_CardOrderItem", Model)
+
+
+    <br>
+
+    <div style="font-size:x-small">
+        <table>
+            <tr>
+                <th>Error Message</th>
+            </tr>
+            @if (Model.Message != "") // toto by malo byt vzdy true
+            {
+                var pomXMLErrors = XElement.Parse(Model.Message);
+                foreach (var item in pomXMLErrors.Descendants())
+                {
+                    if (item.Name != "errors")
+                    {
+                        <tr>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
+    </div>
+}
+
+else if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "SENT" || Model.RequestStatusName == "VALID" || (Model.RequestStatusName == "CANCELED")) // VALID|RECEIVED|SENT|CANCELED)
+{
+    if (Model.RequestStatusName == "RECEIVED")
+    {
+        <p style="font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">2. Order was VALID</div>
+            <div style="display:inline-block;">@Model.ValidStatusDate</div> 
+        </p>
+        <p style="font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">3. Order was RECEIVED</div>
+            <div style="display:inline-block;">@Model.ReceivedStatusDate</div>
+        </p>
+    }
+    else if (Model.RequestStatusName == "SENT")
+    {
+        <p style="font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">2. Order was VALID</div>
+            <div style="display:inline-block;">@Model.ValidStatusDate</div>
+        </p>
+        <p style="font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">3. Order was RECEIVED</div>
+            <div style="display:inline-block;">@Model.ReceivedStatusDate</div>
+        </p>
+        <p style="color:green; font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">4. Order was SENT</div>  
+            <div style="display:inline-block;">@Model.SentStatusDate</div>
+        </p>
+    }
+    else if (Model.RequestStatusName == "VALID")
+    {
+        <p style="color:green; font-size:x-large">
+            <div style="color:green; font-size:x-large; display:inline-block; margin-right:10px;">2. Order was VALID</div>
+            <div style="display:inline-block;">@Model.ValidStatusDate</div>
+        </p>
+    }
+    else if (Model.RequestStatusName == "CANCELED") // CANCELED "normal" ORDER
+    {
+        <p style="font-size:x-large">
+            <div style="font-size:x-large; display:inline-block;margin-right:10px; color:red;">2. Order was CANCELED</div>
+            <div style="display:inline-block;">@Model.LastUpdate</div>
+        </p>
+        <br><br>
+    }
+
+    <br /><br />
+
+    @Html.Partial("_CardOrderItem",Model)
+
+    <br>
+    var pomXML = Model.Content;
+    XElement pomXElement = XElement.Parse(pomXML);
+    // pseudo "2D Dictionary"
+    // KEY = package_id; value = (KEY = element_name; VALUE = element_value)
+    Dictionary<string, Dictionary<string, string>> pomPackageIds = new Dictionary<string, Dictionary<string, string>>();
+
+    // count_of_cards
+    Dictionary<string, int> countOfCardsInPackages = new Dictionary<string, int>();
+
+
+    foreach (var item in pomXElement.Elements("package_distribution"))
+    {
+        var pomDict = new Dictionary<string, string>();
+        foreach (var element in item.Elements())
+        {
+            if (element.Name == "package_address")
+            {
+                foreach (var packageAddressElement in element.Elements())
+                {
+                    if (element.Value.Any())
+                    {
+                        pomDict.Add(packageAddressElement.Name.ToString(), packageAddressElement.Value);
+                    }
+                    else
+                    {
+                        pomDict.Add(packageAddressElement.Name.ToString(), "");
+                    }
+                }
+            }
+            else if (element.Name == "delivery_list")
+            {
+                foreach (var packageAddressDeliveryListElement in element.Elements())
+                {
+                    if (packageAddressDeliveryListElement.Value.Any())
+                    {
+                        pomDict.Add(packageAddressDeliveryListElement.Name.ToString(), element.Value);
+                    }
+                    else
+                    {
+                        pomDict.Add(packageAddressDeliveryListElement.Name.ToString(), "");
+                    }
+                }
+            }
+            else
+            {
+                if (element.Value.Any())
+                {
+                    var pom = "";
+                    // vypis constant_description
+                    if (element.Name == "carrier")
+                    {
+                        var pom1 = m_cardnetDAL.getConstantPartner().Where(c => c.PartnerName == Model.PartnerName && c.ConstantName == "CarrierType" && c.ConstantValue == element.Value).FirstOrDefault();
+                        pom = pom1 == null ? "test (" + element.Value + ")" : pom1.ConstantDescription;
+                    }
+                    else if (element.Name == "carrier_type") // takisto vypis constant_description
+                    {
+                        var pom1 = m_cardnetDAL.getConstantPartner().Where(c => c.PartnerName == Model.PartnerName && c.ConstantName == "Carrier" && c.ConstantValue == element.Value).FirstOrDefault();
+                        pom = pom1 == null ? "test (" + element.Value + ")" : pom1.ConstantDescription;
+                    }
+                    else if (element.Name == "package_type_id")
+                    {
+                        //var pom1 = m_cardnetDAL.getConstantPartner().Where(c => c.PartnerName == Model.PartnerName && c.ConstantName == "PackageTypeId" && c.ConstantValue == element.Value).FirstOrDefault();
+                        pom = element.Value;
+                    }
+                    else
+                    {
+                        pom = element.Value;
+                    }
+                    pomDict.Add(element.Name.ToString(), /*element.Value*/pom);
+                }
+                else
+                {
+                    pomDict.Add(element.Name.ToString(), "");
+                }
+            }
+        }
+
+        pomPackageIds.Add(item.Attribute("package_id").Value, pomDict);
+        //pomDict.Clear();
+
+    }
+
+    @*// count_of_cards*@
+    foreach (var card in pomXElement.Elements("card"))
+    {
+        var pom = card.Element("package_id").Value;
+        if (countOfCardsInPackages.ContainsKey(pom))
+        {
+            countOfCardsInPackages[pom] += 1;
+        }
+        else
+        {
+            countOfCardsInPackages[pom] = 1;
+        }
+    }
+
+    @*dopln count_of_cards do pomPackageIds*@
+    foreach (var packageId in pomPackageIds.Keys)
+    {
+        if (countOfCardsInPackages.ContainsKey(packageId))
+        {
+            var foo = countOfCardsInPackages[packageId];
+            pomPackageIds[packageId].Add("count_of_cards",foo.ToString());
+        }
+    }
+
+    <br /><br />
+    <table>
+        <tr style="background-color:#cccccc;color:#000000;font-weight:bold;">
+            <td colspan="3" style="padding: 1.0rem">Packages </td>
+        </tr>
+
+        @Html.Partial("_HeaderPackages")
+
+        @foreach (var item in pomPackageIds)
+        {
+            if (item.Value.ContainsKey("count_of_cards"))
+            {
+                var pomHomeDelivery = item.Value["home_delivery"] == "false" ? "no" : "yes";
+                <tr>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Key</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["carrier_type"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["carrier"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["package_type_id"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@pomHomeDelivery</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["count_of_cards"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_recipient"]</td>
+                    @if (item.Value.ContainsKey("address_person"))
+                    {
+                        <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_person"]</td> <!-- minOccurs="0" -->
+                    }
+                    else
+                    {
+                        <td style="padding-left: 1.0rem;border: solid thin; border-color: rgba(0, 0, 0, 0.3);text-align:center">&nbsp;</td>
+                    }
+                    @if (item.Value.ContainsKey("address_phone"))
+                    {
+                        <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_phone"]</td> <!-- minOccurs="0" -->
+                    }
+                    else
+                    {
+                        <td style="padding-left: 1.0rem;border: solid thin; border-color: rgba(0, 0, 0, 0.3);text-align:center">&nbsp;</td>
+                    }
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_country"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_city_zip"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_street"]</td>
+                    <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@item.Value["address_street_number"]</td>
+
+                    @if (@item.Value["home_delivery"] == "true")
+                    {
+                        <td @*class="export_visibility"*@>Export DL</td>
+                    }
+                    else
+                    {
+                        <td style="padding-left: 1.0rem;"><a href="@Url.Action("ExportDeliveryList", "CardOrder", new { Id = @Model.ID, packageId = @item.Key })" )>Export DL</a></td>
+                    }
+                    <td style="padding-left: 1.0rem;"><a href="@Url.Action("ShowCardsInPackage", "CardOrder", new { Id = @Model.ID, packageId = @item.Key })" )>Show Cards</a></td>
+                </tr>
+            }
+        }
+    </table>
+}
+else if (Model.RequestStatusName == "INSERTED" || (Model.RequestStatusName == "CANCEL RECEIVED" && Model.ValidStatusDate == "todo"))
+{
+    if (Model.RequestStatusName == "CANCEL RECEIVED")
+	{
+        <p style="font-size:x-large">
+            <div style="font-size:x-large; display:inline-block;margin-right:10px; color:red;">2. Order Cancelation was accepted</div>
+            <div style="display:inline-block;">@Model.CanceledStatusDate</div>
+        </p>
+        <br><br>
+	}
+    @Html.Partial("_CardOrderItem", Model)
+}
+
+
+@*<a href="@Url.Action("ExportDeliveryList", "CardOrder", new { Id = @Model.ID })" )>Export Delivery List</a></br>
+<a href="@Url.Action("ExportPackageLabels", "CardOrder", new { Id = @Model.ID })" )>Export Package Labels</a>*@
+
+

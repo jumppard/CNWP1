@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3977be7f018848bf8fb111618275220c" Name="Diagram1" ZoomLevel="10">
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CALLCENTER" Width="1.5" PointX="3" PointY="48.375" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CALLERINFORMATION" Width="1.5" PointX="8.25" PointY="49.625" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CALLRECORD" Width="1.5" PointX="5.25" PointY="54.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGN" Width="1.5" PointX="12" PointY="38.25" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNBLACKLIST" Width="1.5" PointX="14.25" PointY="38.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNCRITERION" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNCUSTOMER" Width="1.5" PointX="17.25" PointY="43.875" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNHISTORY" Width="1.5" PointX="17.25" PointY="37.5" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNLIMIT" Width="1.5" PointX="14.25" PointY="42" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNMESSAGE" Width="1.5" PointX="14.25" PointY="48.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNPOINT" Width="1.5" PointX="14.25" PointY="53.625" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CAMPAIGNRFM" Width="1.5" PointX="14.25" PointY="64.5" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARD" Width="1.5" PointX="7.5" PointY="31" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARD_EXTRA" Width="1.5" PointX="9.75" PointY="29.875" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARD_PIN_STATUS" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARD_TRANSFER" Width="1.5" PointX="6" PointY="42" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARDPOOL" Width="1.5" PointX="5.25" PointY="22.875" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARDPOOLDETAIL" Width="1.5" PointX="7.5" PointY="23.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CARDPRODUCT" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CITY" Width="1.5" PointX="6" PointY="64.25" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CONSTANT" Width="1.5" PointX="0.75" PointY="40.5" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CONTACTINFO" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CORPORATECUSTOMER" Width="1.5" PointX="3" PointY="38.375" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CORPORATECUSTOMERCONTRACT" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.COUNTRY" Width="1.5" PointX="6" PointY="58" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.COUNTY" Width="1.5" PointX="6" PointY="61.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CUSTOMER" Width="1.5" PointX="5.25" PointY="33.625" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CUSTOMERPRIVATECHILDINFO" Width="1.5" PointX="12.5" PointY="33.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.CUSTOMERPRIVATEINFO" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.FINANCIALINFO" Width="1.5" PointX="9.75" PointY="33.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.LANGUAGE" Width="1.5" PointX="6.75" PointY="5.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.LOCALIZEDPROPERTY" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.LOCALSTRINGRESOURCE" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.MERCHANT" Width="1.5" PointX="9" PointY="41.875" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.MERCHANT_BALANCE_PERIOD" Width="1.5" PointX="20.25" PointY="43.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.MERCHANT_CARDTYPE_PERMISSION" Width="1.5" PointX="17.25" PointY="48" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.MERCHANT_CATEGORY_CODE" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.MERCHANT_CATEGORY_GROUP" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.ORGANIZATION" Width="1.5" PointX="3" PointY="17.5" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.PAGE" Width="1.5" PointX="3" PointY="55.125" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.PAGE_PERMISSION" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.POSERRORCODE" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.POSTAG" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.PREFERENCEDATA" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.PREFERENCEOPTION" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.RESPONSE_CODES" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.SECURITYPOLICY" Width="1.5" PointX="5.25" PointY="17.75" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.USER" Width="1.5" PointX="0.75" PointY="31.25" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.USER_ORGANIZATION_MAP" Width="1.5" PointX="5.25" PointY="28.5" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.USERTEMPLATE" Width="1.5" PointX="3" PointY="43.375" />
+        <EntityTypeShape EntityType="REWARDO_CARDNETModel.USERTEMPLATE_PAGE_MAP" Width="1.5" PointX="5.25" PointY="50.125" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLCATEGORY" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLCHANNEL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLIMPORTANCE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLREASON" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLRESULT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_CALLSTATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_INSERTUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_LAST_UPDATE_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_OBJECTTYPE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLCENTER_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_CALL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLRECORD_CALL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_CITY" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_COUNTRY" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_COUNTY" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_INSERTUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLERINFORMATION_LASTUPDATEUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CALLRECORD_INSERTUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_CAMPAIGNTYPE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_CONSTANT_ONLYTHIS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_CUSTOMERCANPAYWITHPOINTS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_LASTUPDATEUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_RESETREWARDSAFTERCAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_STATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGN_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNBLACKLIST_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNCUSTOMER_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CampaignHistory_Campaign" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNLIMIT_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNMESSAGE_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNPOINT_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNRFM_CAMPAIGN" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNBLACKLIST_CARD" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNCUSTOMER_CONSTANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNHISTORY_CAMPAIGNHISTORY" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNHISTORY_CUSTOMER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CAMPAIGNMESSAGE_CONSTANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_CARDPOOL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_CARDPRODUCT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_CORPORATECUSTOMER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_CUSTOMER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_EXTRA_CARD" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_FINANCIALINFO_CARD" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_BALANCE_TRANSFER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_BONUS_TRANSFER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_CARDPOOL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_CARDPRODUCT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_INSERTUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_TRANSFER_CASE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_TRANSFER_STATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARD_TRANSFER_TRANSFER_TIMING" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARDPOOL_CARDPRODUCT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARDPOOL_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CARDPOOLDETAIL_CARDPOOL" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_CARDPRODUCT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CORPORATECUSTOMER_STATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMERPRIVATECHILDINFO_CONSTANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_MERCHANT_GROUP" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_MERCHANTTYPE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_STATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_BONUSRATE_TYPE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_CAMPAIGN_ACTIVE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_COLLECTBONUSACTIVE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_CONSTANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_LOADPREPAIDACTIVE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_REDEEMBONUSACTIVE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_USEPREPAIDACTIVE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_STATUS" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTEMPLATE_PAGE_MAP_CONSTANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTYPE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CORPORATECUSTOMER_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CORPORATECUSTOMER_USER1" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMER_CORPORATECUSTOMER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMER_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMERPRIVATECHILDINFO_CUSTOMERPRIVATEINFO" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMERPRIVATECHILDINFO_LASTUPDATEUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_CUSTOMERPRIVATECHILDINFO_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_BALANCE_PERIOD_MERCHANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_INSERTUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_LASTUPDATEUSER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_MERCHANT" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_BALANCE_PERIOD_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANTCARDTYPEPERMISSION_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_MERCHANT_CATEGORY_CODE_MERCHANT_CATEGORY_GROUP" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_SECURITYPOLICY_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USER_ORGANIZATION_MAP_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTEMPLATE_ORGANIZATION" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTEMPLATE_PAGE_MAP_PAGE" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_LASTUPDATE_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USER_ORGANIZATION_MAP_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTEMPLATE_USER" />
+        <AssociationConnector Association="REWARDO_CARDNETModel.FK_USERTEMPLATE_PAGE_MAP_USERTEMPLATE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

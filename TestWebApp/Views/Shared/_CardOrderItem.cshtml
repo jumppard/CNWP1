@@ -1,0 +1,64 @@
+﻿@using TestWebApp.ViewModel
+@using Vereyon.Web;
+@model CardOrderViewModel
+
+<table>
+    <tr style="background-color:#cccccc;color:#000000;font-weight:bold;">
+        <td colspan="3" style="padding: 1.0rem">Card Order Info</td>
+    </tr>
+    <tr class="tableHeader">
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Cardnet ID</th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Customer Request ID        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Order Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Customer  </th>
+                                  
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Card Product</th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Card Count        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Carrier Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Envelope Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Plastic Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Attachement Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Package Attachement Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Delivery List Type        </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Cards Expiration</th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Inserted</th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Last Update       </th>
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Status       </th><!-- ANS::REQUEST_STATUS -->
+        <th style="padding: 1.0rem;border: solid thin;background-color:lightgray;text-align:center">Deadline         </th>
+    </tr>
+
+    @if (Model != null)
+    {
+        <tr @*bgcolor=@Model.RowColor*@>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center"><b>@Model.ID</b>       </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.RequestID        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.OrderType        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.PartnerName      </td>
+                                                                                              
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.CardTypeName     </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.CardCount        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.CarrierTypeId</td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.EnvelopeTypeId        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.PlasticTypeId       </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.AttachementId        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.PackageAttachementId        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.DeliveryListId        </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.ValidTo          </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.CreationDateTime </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.LastUpdate       </td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.RequestStatusName</td>
+            <td style="padding-left: 1.0rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3);text-align:center">@Model.SlaDeadLine      </td>
+            @if (Model.RequestStatusName == "RECEIVED" || Model.RequestStatusName == "CANCELED")
+            {
+                <td style="padding-left: 1.0rem;"><a href="@Url.Action("ExportXML", "CardOrder", new { Id = @Model.ID })" )> Export XML</a></td>
+                <td style="padding-left: 1.0rem;"><a href="@Url.Action("ExportCarriers", "CardOrder", new { Id = @Model.ID })" )> Export Carriers</a></td>
+                <td style="padding-left: 1.0rem;"><a href="@Url.Action("MarkAsSent", "CardOrder", new { Id = @Model.ID })" )>Mark as SENT</a></td>
+            }
+            else if (Model.RequestStatusName == "SENT" || Model.RequestStatusName == "VALID")
+            {
+                <td style="padding-left: 1.0rem;"><a href="@Url.Action("ExportXML", "CardOrder", new { Id = @Model.ID })" )> Export XML</a></td>
+                <td style="padding-left: 1.0rem;"><a href="@Url.Action("ExportCarriers", "CardOrder", new { Id = @Model.ID })" )> Export Carriers</a></td>
+            }
+        </tr>
+    }
+</table>

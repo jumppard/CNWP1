@@ -1,0 +1,23 @@
+﻿@using TestWebApp.ViewModel
+@*@model CreditOrderListViewModel*@
+
+@using PagedList.Mvc
+@model  PagedList.IPagedList<TestWebApp.ViewModel.CreditOrderViewModel>
+
+@{
+    ViewBag.Title = "Credit Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Credit Order</h2>
+
+@Html.Partial("_CreditOrderTable", Model)
+
+<div id="container" style="margin-left: 0px">
+    <p></p>
+    <p></p>
+    <div class="pagination" style="margin-left: 0px">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>

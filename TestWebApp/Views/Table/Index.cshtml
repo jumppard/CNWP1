@@ -1,0 +1,63 @@
+﻿@using TestWebApp.ViewModel
+@model TablesViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Tables</h2>
+
+    <h2><b>REQ/ANS Tables</b></h2>
+    <p> 
+        @if (Model.CardnetTables.Count > 0)
+        {
+            <table>
+            <tr>
+                <th style="padding: 0.5rem;">Operation type</th>
+                <th style="padding: 0.5rem;">Today waiting(valid)</th>
+                <th style="padding: 0.5rem;">Today received</th>
+                <th style="padding: 0.5rem;">All waiting</th>
+                <th style="padding: 0.5rem;">Last processed date</th>
+            </tr>
+            @for (int i = Model.CardnetTables.Count - 1; i >= 0; i--)
+            {
+                var item = Model.CardnetTables[i];
+                if (Model.CardnetTableColumns.ContainsKey(item.Item1))
+                {
+                    <tr>
+                        <td style="padding: 0.5rem;"><input type="submit" value="@item.Item1" onclick="@("window.location.href='" + @Url.Action("Index",item.Item2) + "'");" /> </td>
+                        <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["TODAYSWAITING"] </td>
+                        <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["TODAYSPROCESSED"] </td>
+                        <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["ALLWAITING"] </td>
+                        <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["LASTPROCESSEDDATETIME"] </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="2"><input type="submit" value="@item.Item1" onclick="@("window.location.href='" + @Url.Action("Index",item.Item2) + "'");" /> </td>
+                        <td >temp0</td>
+                    </tr>
+                }
+            }
+            @*<input type="submit" value="POS Acceptance" onclick="@("window.location.href='" + @Url.Action("Index","PosAcceptance") + "'");" /> @ViewBag.PosAcceptanceUnprocessedRequestsCount &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Card Order" onclick="@("window.location.href='" + @Url.Action("Index","CardOrder") + "'");" /> @ViewBag.CardOrderUnprocessedRequestsCount &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Credit Order" onclick="@("window.location.href='" + @Url.Action("Index","CreditOrder") + "'");" /> @ViewBag.CreditOrderUnprocessedRequestsCount &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Card Status Update" onclick="@("window.location.href='" + @Url.Action("Index","CardStatusUpdate") + "'");" /> @ViewBag.CardStatusUpdateUnprocessedRequestsCount &nbsp;&nbsp;&nbsp;
+            <input type="submit" value="Card Transfer (EE)" onclick="@("window.location.href='" + @Url.Action("EETransfer","CardTransfer") + "'");" /> &nbsp;&nbsp;&nbsp; exist-to-exist
+            <input type="submit" value="Card Transfer (C)" onclick="@("window.location.href='" + @Url.Action("ClassicTransfer","CardTransfer") + "'");" /> *@
+            </table>
+        }
+        else
+	    {
+            <div> Cardnet operation types not set in CONSTANT_UNIVERSAL table. Please repair it! </div>
+	    } 
+    </p>
+
+    <h2><b>Report Tables</b></h2>
+    <p>
+        <button type="submit">Cards report</button> &nbsp;&nbsp;&nbsp;
+        <button type="submit">Terminals report</button> &nbsp;&nbsp;&nbsp;
+        <button type="submit">Transactions report</button> &nbsp;&nbsp;&nbsp;
+    </p>

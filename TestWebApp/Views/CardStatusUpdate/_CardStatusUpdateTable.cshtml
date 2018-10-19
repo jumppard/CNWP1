@@ -1,0 +1,53 @@
+﻿@using TestWebApp.ViewModel
+@*@model CardStatusUpdateListViewModel*@
+
+@using PagedList.Mvc
+@model  PagedList.IPagedList<TestWebApp.ViewModel.CardStatusUpdateViewModel>
+
+<div>
+    <table>
+        <tr class="tableHeader">
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Cardnet ID           </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer Request ID  </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer             </th>
+
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Number          </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Account         </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Requested Card Status</th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Daily Limit          </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Transaction Limit    </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Inserted             </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Processed            </th>
+            <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Message              </th>
+        </tr>
+
+        @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                <tr bgcolor=@item.RowColor>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.ID                  </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.RequestId           </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.PartnerName         </td>
+
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.ExternalCardId      </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.AccountTypeIdName   </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.RequestedStateId    </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.DailyLimit          </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.TransactionLimit    </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.CreationDateTime    </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.AnswerDateTime      </td>
+                    <td style="padding: 1.0rem;border: solid thin; text-align:center; border-color: rgba(0, 0, 0, 0.3)">@item.Message             </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td>empty</td>
+            </tr>
+        }
+    </table>
+</div>
+
+

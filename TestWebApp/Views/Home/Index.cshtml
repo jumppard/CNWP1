@@ -1,0 +1,187 @@
+﻿@using TestWebApp.ViewModel
+@model TablesViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>LIVEPAGE</h1>
+    <p class="lead">Page with live and fresh data</p>
+</div>
+
+<div class="row">
+    <div @*class="col-md-4"*@>
+            <table>
+                <tr style="background-color:#99ff99;color:#000000;font-weight:bold;">
+                    <td colspan="3" style="padding: 1.0rem">Today SENT Card Orders (@Model.colVm_todaySent.Count)</td>
+                </tr>
+                <tr class="tableHeader">
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Cardnet ID</th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer Request ID        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Order Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer  </th>
+
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Product</th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Count        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Carrier Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Envelope Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Plastic Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Attachement Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Package Attachement Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Delivery List Type        </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Cards Expiration</th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Inserted</th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Last Update       </th>
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Status       </th><!-- ANS::REQUEST_STATUS -->
+                    <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Deadline         </th>
+                </tr>   
+            <br>
+            @if (Model.colVm_todaySent.Count != 0)
+            {
+                <div style="overflow-y: auto; height:100px;">
+                    @foreach (var item in Model.colVm_todaySent)
+                    {
+                        <tr @*bgcolor=@Model.RowColor*@>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)"><b>@item.ID</b>       </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.RequestID        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.OrderType        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PartnerName      </td>
+
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CardTypeName     </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CardCount        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CarrierTypeId</td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.EnvelopeTypeId        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PlasticTypeId       </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.AttachementId        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PackageAttachementId        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.DeliveryListId        </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.ValidTo          </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CreationDateTime </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.LastUpdate       </td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.RequestStatusName</td>
+                            <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.SlaDeadLine      </td>
+                            <td style="padding-left: 1.5rem;" bgcolor="white"><a href="@Url.Action("OpenOrder", "CardOrder", new { Id = item.ID })" )>Open</a></td>
+                        </tr>
+                    }
+                </div>
+            }
+            else
+            {
+                    <tr><td>null</td></tr>
+            }
+        </table>
+        <p>
+        <table>
+            <tr style="background-color:orange;color:#000000;font-weight:bold;">
+                <td colspan="3" style="padding:1.0rem">Processing Card Orders (@Model.colVm.Count)</td>
+            </tr>
+            <tr class="tableHeader">
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Cardnet ID</th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer Request ID        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Order Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Customer  </th>
+
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Product</th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Card Count        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Carrier Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Envelope Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Plastic Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Attachement Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Package Attachement Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Delivery List Type        </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Cards Expiration</th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Inserted</th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Last Update       </th>
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Status       </th><!-- ANS::REQUEST_STATUS -->
+                <th style="padding: 1.5rem;border: solid thin;background-color:lightgray;text-align:center">Deadline         </th>
+            </tr>   
+        
+        @if (Model.colVm.Count != 0)
+        {
+            <div style="overflow-y: auto; height:100px;">
+                @foreach (var item in Model.colVm)
+                {
+                    <tr @*bgcolor=@Model.RowColor*@>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)"><b>@item.ID</b>       </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.RequestID        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.OrderType        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PartnerName      </td>
+
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CardTypeName     </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CardCount        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CarrierTypeId</td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.EnvelopeTypeId        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PlasticTypeId       </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.AttachementId        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.PackageAttachementId        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.DeliveryListId        </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.ValidTo          </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.CreationDateTime </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.LastUpdate       </td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.RequestStatusName</td>
+                        <td style="padding-left: 1.5rem;border: solid thin;border-color: rgba(0, 0, 0, 0.3)">@item.SlaDeadLine      </td>
+                        <td style="padding-left: 1.5rem;" bgcolor="white"><a href="@Url.Action("OpenOrder", "CardOrder", new { Id = item.ID })" )>Open</a></td>
+
+                    </tr>
+                }
+            </div>
+        }
+        else
+        {
+            <tr><td>null</td></tr>
+        }
+        </table>
+        </p><br><br>
+        @if (Model.CardnetTables.Count > 0)
+        {
+            <p>
+            <table>
+                <tr>
+                    <th style="padding: 0.5rem;">Operation type</th>
+                    <th style="padding: 0.5rem;">Today waiting(valid)</th>
+                    <th style="padding: 0.5rem;">Today received</th>
+                    <th style="padding: 0.5rem;">All waiting</th>
+                    <th style="padding: 0.5rem;">Last processed date</th>
+                </tr>
+                @for (int i = Model.CardnetTables.Count - 1; i >= 0; i--)
+                {
+                    var item = Model.CardnetTables[i];
+                    if (Model.CardnetTableColumns.ContainsKey(item.Item1))
+                    {
+                        <tr>
+                            <td style="padding: 0.5rem;"><input type="submit" value="@item.Item1" onclick="@("window.location.href='" + @Url.Action("Index",item.Item2) + "'");" /> </td>
+                            <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["TODAYSWAITING"] </td>
+                            <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["TODAYSPROCESSED"] </td>
+                            <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["ALLWAITING"] </td>
+                            <td style="padding: 0.5rem;">@Model.CardnetTableColumns[item.Item1]["LASTPROCESSEDDATETIME"] </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="2"><input type="submit" value="@item.Item1" onclick="@("window.location.href='" + @Url.Action("Index",item.Item2) + "'");" /> </td>
+                            <td>temp0</td>
+                        </tr>
+                    }
+                }
+            </table>
+            </p>
+            }
+            else
+            {
+                <div> Cardnet operation types not set in CONSTANT_UNIVERSAL table. Please repair it! </div>
+            }
+        
+    </div>
+    @*<div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>*@
+</div>
