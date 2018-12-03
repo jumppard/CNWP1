@@ -428,7 +428,7 @@ namespace DeliveryListGenerationApp
                 m_exportManager.SetTemplate(newTemplateName);
 
                 var orderNumbers = new Dictionary<string, string>();
-                var pomPackages = m_inputXMLFile.Elements("package_distribution").ToList();
+                var pomPackages = m_inputXMLFile.Elements("package_distribution").Where(p=>p.Element("home_delivery").Value == "false").ToList();
             
                 // Dictionary, key = dep id; value = list of card_id(s)
                 var pomDict = new Dictionary<string, Dictionary<string,string>>();
