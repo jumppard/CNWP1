@@ -89,7 +89,7 @@ namespace TestWebApp.Controllers
                 FlashMessage.Confirmation("Operation succeeded.");
                 return RedirectToAction("OpenOrder", new { id = id });
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw;
             }

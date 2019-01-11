@@ -10,6 +10,7 @@ using System.IO;
 using TestWebApp.DataAccessLayer;
 using System.Data.SqlClient;
 using System.Data.Entity.Core.EntityClient;
+using System.Web.Configuration;
 
 namespace TestWebApp.BusinessLayer
 {
@@ -248,6 +249,21 @@ namespace TestWebApp.BusinessLayer
                 connection.Open();
                 command.ExecuteNonQuery();
             }
+
+            // WAREHOUSING EXCEL FILE GENERATION
+            ExcelEngine excelEngine = new ExcelEngine();
+
+            var lastExcelFileName = "";//excelEngine.GetLastExcelFileName(WebConfigurationManager.AppSettings["warehousing_folder"]+DateTime.Now.Year);
+            var destinationPath     = WebConfigurationManager.AppSettings["warehousing_folder"];
+            var fileName            = WebConfigurationManager.AppSettings["warehousing_file_prefix"] + id;
+
+            excelEngine.CreateExcelFile(lastExcelFileName,destinationPath,fileName);
+
+            // 1. ziskaj z danej objednavky vsetky potrebne materialy a k nim prislusne pocty
+            // 2. uprav pocty materialov v novo vytvorenom excelovskom dokumente 
+
+
+
         }
 
         public string getEnvironment() { return m_environment; }
