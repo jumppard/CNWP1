@@ -4,17 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="test1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+    <Schema Namespace="test1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="____ANS001">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="ans_id" Type="bigint" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="request_message" MaxLength="100" Type="varchar" />
+          <Property Name="request_message" Type="varchar" MaxLength="100" />
           <Property Name="status_after_request" Type="int" />
           <Property Name="change_time" Type="datetime" />
         </EntityType>
@@ -22,98 +22,98 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="answer_id" Type="bigint" />
           <Property Name="request_id" Type="bigint" />
-          <Property Name="insert_time" Nullable="false" Type="datetime" />
+          <Property Name="insert_time" Type="datetime" Nullable="false" />
           <Property Name="change_time" Type="datetime" />
           <Property Name="request_status" Type="tinyint" />
           <Property Name="message" Type="xml" />
-          <Property Name="additional_column1" MaxLength="50" Type="varchar" />
+          <Property Name="additional_column1" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="____ANS003">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="ans_id" Type="bigint" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="transaction_id" Type="bigint" />
           <Property Name="change_time" Type="datetime" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="request_message" MaxLength="100" Type="varchar" />
-          <Property Name="transaction_final" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="transaction_balance" Precision="18" Scale="4" Type="decimal" />
+          <Property Name="request_message" Type="varchar" MaxLength="100" />
+          <Property Name="transaction_final" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="transaction_balance" Type="decimal" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="____ANS004">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="ans_id" Type="bigint" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="change_time" Type="datetime" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="request_message" MaxLength="100" Type="varchar" />
+          <Property Name="request_message" Type="varchar" MaxLength="100" />
           <Property Name="card_status_code" Type="int" />
         </EntityType>
         <EntityType Name="____ANS005">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
-          <Property Name="ANSXXX005_ID" Nullable="false" Type="bigint" />
-          <Property Name="CARD_ID" Nullable="false" Type="bigint" />
-          <Property Name="PARTNER_ID" Nullable="false" Type="smallint" />
-          <Property Name="CARDNO" Nullable="false" MaxLength="30" Type="varchar" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ANSXXX005_ID" Type="bigint" Nullable="false" />
+          <Property Name="CARD_ID" Type="bigint" Nullable="false" />
+          <Property Name="PARTNER_ID" Type="smallint" Nullable="false" />
+          <Property Name="CARDNO" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="PARTNER_CARD_ID" Type="bigint" />
-          <Property Name="TRANSACTION_LIMIT_CARDACCOUNT" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="DAILY_LIMIT_CARDACCOUNT" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="TRANSACTION_LIMIT_ACCOUNT" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="DAILY_LIMIT_ACCOUNT" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="STATUS" Nullable="false" Type="int" />
+          <Property Name="TRANSACTION_LIMIT_CARDACCOUNT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DAILY_LIMIT_CARDACCOUNT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="TRANSACTION_LIMIT_ACCOUNT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="DAILY_LIMIT_ACCOUNT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="LASTUPDATEDATE" Type="datetime" />
           <Property Name="LASTUPDATEDATE_PRODUCT" Type="datetime" />
           <Property Name="ACCOUNT_TYPE_ID" Type="int" />
-          <Property Name="ACCOUNT_TYPE_ID_STATUS" Nullable="false" Type="int" />
+          <Property Name="ACCOUNT_TYPE_ID_STATUS" Type="int" Nullable="false" />
           <Property Name="LASTUPDATEDATE_ACCOUNT" Type="datetime" />
           <Property Name="LASTUPDATEDATE_CARD" Type="datetime" />
-          <Property Name="CURRENT_BALANCE" Precision="18" Scale="4" Type="decimal" />
+          <Property Name="CURRENT_BALANCE" Type="decimal" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="____ANS006">
           <Key>
             <PropertyRef Name="TRANSACTION_ID" />
           </Key>
-          <Property Name="TRANSACTION_ID" Nullable="false" Type="bigint" />
-          <Property Name="CARD_ID" Nullable="false" Type="bigint" />
-          <Property Name="PARTNER_ID" Nullable="false" Type="smallint" />
+          <Property Name="TRANSACTION_ID" Type="bigint" Nullable="false" />
+          <Property Name="CARD_ID" Type="bigint" Nullable="false" />
+          <Property Name="PARTNER_ID" Type="smallint" Nullable="false" />
           <Property Name="OPERATIONAL_CODE" Type="smallint" />
-          <Property Name="AMOUNT" Nullable="false" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="TRANSACTION_DATE" Nullable="false" Type="datetime" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TRANSACTION_DATE" Type="datetime" Nullable="false" />
           <Property Name="ORG_TRANSACTION_DATE" Type="datetime" />
-          <Property Name="PREPAID_BALANCE" Nullable="false" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="TERMINAL_ID" MaxLength="8" Type="char" />
-          <Property Name="RESPONSE_CODE" Nullable="false" MaxLength="10" Type="varchar" />
-          <Property Name="INTERNAL_ERROR_MESSAGE" Nullable="false" MaxLength="300" Type="varchar" />
-          <Property Name="REMAINING_DAILY_LIMIT" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="MTI" MaxLength="4" Type="varchar" />
-          <Property Name="ORG_REQUEST_MTI" MaxLength="4" Type="varchar" />
-          <Property Name="STAN" MaxLength="6" Type="varchar" />
-          <Property Name="ORG_STAN" MaxLength="6" Type="varchar" />
-          <Property Name="AUTHCODE" MaxLength="6" Type="varchar" />
+          <Property Name="PREPAID_BALANCE" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="TERMINAL_ID" Type="char" MaxLength="8" />
+          <Property Name="RESPONSE_CODE" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="INTERNAL_ERROR_MESSAGE" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="REMAINING_DAILY_LIMIT" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="MTI" Type="varchar" MaxLength="4" />
+          <Property Name="ORG_REQUEST_MTI" Type="varchar" MaxLength="4" />
+          <Property Name="STAN" Type="varchar" MaxLength="6" />
+          <Property Name="ORG_STAN" Type="varchar" MaxLength="6" />
+          <Property Name="AUTHCODE" Type="varchar" MaxLength="6" />
           <Property Name="ACCOUNT_TYPE_ID" Type="int" />
         </EntityType>
         <EntityType Name="____ANS007">
           <Key>
             <PropertyRef Name="TERMINALID" />
           </Key>
-          <Property Name="TERMINALID" Nullable="false" MaxLength="8" Type="char" />
-          <Property Name="EXTERNALTERMINALID" Nullable="false" MaxLength="30" Type="varchar" />
-          <Property Name="PARTNER_ID" Nullable="false" Type="smallint" />
-          <Property Name="STATUS" Nullable="false" Type="int" />
+          <Property Name="TERMINALID" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="EXTERNALTERMINALID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PARTNER_ID" Type="smallint" Nullable="false" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
           <Property Name="LASTUPDATEDATE" Type="datetime" />
           <Property Name="ACCOUNT_TYPE_ID" Type="int" />
         </EntityType>
@@ -121,65 +121,65 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PARTNER_ID" Type="int" />
           <Property Name="ANS_ID" Type="bigint" />
           <Property Name="REQUEST_ID" Type="bigint" />
           <Property Name="REQUEST_STATUS" Type="tinyint" />
-          <Property Name="REQUEST_MESSAGE" MaxLength="500" Type="varchar" />
+          <Property Name="REQUEST_MESSAGE" Type="varchar" MaxLength="500" />
           <Property Name="AUTHORIZATION_ID_FROM_CARD" Type="bigint" />
           <Property Name="AUTHORIZATION_ID_TO_CARD" Type="bigint" />
           <Property Name="MESSAGE" Type="xml" />
           <Property Name="CHANGE_TIME" Type="datetime" />
-          <Property Name="CURRENT_BALANCE_FROM_CARD" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="CURRENT_BALANCE_TO_CARD" Precision="18" Scale="4" Type="decimal" />
+          <Property Name="CURRENT_BALANCE_FROM_CARD" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="CURRENT_BALANCE_TO_CARD" Type="decimal" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="____REQ001">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="partner_request_id" Type="bigint" />
           <Property Name="terminal_type_id" Type="int" />
-          <Property Name="external_terminal_id" MaxLength="16" Type="varchar" />
+          <Property Name="external_terminal_id" Type="varchar" MaxLength="16" />
           <Property Name="new_accept_state" Type="bit" />
           <Property Name="creation_datetime" Type="datetime" />
           <Property Name="flag" Type="bit" />
           <Property Name="answer_datetime" Type="datetime" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="ACCOUNT_TYPE_ID" Nullable="false" Type="int" />
+          <Property Name="ACCOUNT_TYPE_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="____REQ002">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="request_id" Type="bigint" />
-          <Property Name="partner_request_id" MaxLength="10" Type="varchar" />
+          <Property Name="partner_request_id" Type="varchar" MaxLength="10" />
           <Property Name="partner_id" Type="int" />
           <Property Name="card_type_id" Type="smallint" />
-          <Property Name="carrier_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="envelope_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="plastic_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="attachement_id" MaxLength="100" Type="varchar" />
-          <Property Name="package_attachement_id" MaxLength="100" Type="varchar" />
-          <Property Name="delivery_list_id" MaxLength="100" Type="varchar" />
+          <Property Name="carrier_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="envelope_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="plastic_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="attachement_id" Type="varchar" MaxLength="100" />
+          <Property Name="package_attachement_id" Type="varchar" MaxLength="100" />
+          <Property Name="delivery_list_id" Type="varchar" MaxLength="100" />
           <Property Name="card_count" Type="int" />
           <Property Name="valid_to" Type="date" />
           <Property Name="content" Type="xml" />
           <Property Name="creation_datetime" Type="datetime" />
-          <Property Name="carriers_processing_status" Nullable="false" Type="tinyint" />
-          <Property Name="cards_processing_status" Nullable="false" Type="tinyint" />
-          <Property Name="packages_processing_status" Nullable="false" Type="tinyint" />
+          <Property Name="carriers_processing_status" Type="tinyint" Nullable="false" />
+          <Property Name="cards_processing_status" Type="tinyint" Nullable="false" />
+          <Property Name="packages_processing_status" Type="tinyint" Nullable="false" />
           <Property Name="carriers_processing_status_inserted" Type="datetime" />
           <Property Name="cards_processing_status_inserted" Type="datetime" />
           <Property Name="packages_processing_status_inserted" Type="datetime" />
           <Property Name="last_update" Type="datetime" />
           <Property Name="request_status" Type="tinyint" />
-          <Property Name="successfull" Nullable="false" Type="tinyint" />
-          <Property Name="status_final" Nullable="false" Type="bit" />
+          <Property Name="successfull" Type="tinyint" Nullable="false" />
+          <Property Name="status_final" Type="bit" Nullable="false" />
           <Property Name="sla_deadline" Type="date" />
           <Property Name="is_processing" Type="bit" />
         </EntityType>
@@ -187,46 +187,46 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="partner_request_id" Type="bigint" />
           <Property Name="external_card_id" Type="bigint" />
-          <Property Name="transaction_amount" Precision="18" Scale="4" Type="decimal" />
+          <Property Name="transaction_amount" Type="decimal" Precision="18" Scale="4" />
           <Property Name="transaction_type" Type="smallint" />
           <Property Name="creation_datetime" Type="datetime" />
           <Property Name="flag" Type="bit" />
           <Property Name="answer_datetime" Type="datetime" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="ACCOUNT_TYPE_ID" Nullable="false" Type="int" />
+          <Property Name="ACCOUNT_TYPE_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="____REQ004">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="partner_id" Type="int" />
           <Property Name="request_id" Type="bigint" />
           <Property Name="partner_request_id" Type="bigint" />
           <Property Name="external_card_id" Type="bigint" />
           <Property Name="requested_state_id" Type="smallint" />
-          <Property Name="daily_limit" Precision="18" Scale="4" Type="decimal" />
-          <Property Name="transaction_limit" Precision="18" Scale="4" Type="decimal" />
+          <Property Name="daily_limit" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="transaction_limit" Type="decimal" Precision="18" Scale="4" />
           <Property Name="creation_datetime" Type="datetime" />
           <Property Name="flag" Type="bit" />
           <Property Name="answer_datetime" Type="datetime" />
           <Property Name="request_status" Type="bit" />
-          <Property Name="ACCOUNT_TYPE_ID" Nullable="false" Type="int" />
+          <Property Name="ACCOUNT_TYPE_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="____REQ008">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="REQUEST_ID" Type="bigint" />
           <Property Name="PARTNER_ID" Type="int" />
-          <Property Name="PARTNER_REQUEST_ID" MaxLength="50" Type="varchar" />
-          <Property Name="TRANSFER_TYPE" Nullable="false" Type="smallint" />
+          <Property Name="PARTNER_REQUEST_ID" Type="varchar" MaxLength="50" />
+          <Property Name="TRANSFER_TYPE" Type="smallint" Nullable="false" />
           <Property Name="CONTENT" Type="xml" />
           <Property Name="TRANSFER_CASE" Type="smallint" />
           <Property Name="BALANCE_TRANSFER" Type="bit" />
@@ -237,27 +237,27 @@
           <Property Name="CREATION_DATETIME" Type="datetime" />
           <Property Name="LAST_UPDATE" Type="datetime" />
           <Property Name="REQUEST_STATUS" Type="tinyint" />
-          <Property Name="SUCCESSFULL" Nullable="false" Type="tinyint" />
+          <Property Name="SUCCESSFULL" Type="tinyint" Nullable="false" />
           <Property Name="IS_PROCESSING" Type="bit" />
           <Property Name="SLA_DEADLINE" Type="date" />
-          <Property Name="ACCOUNT_TYPE_ID" Nullable="false" Type="int" />
+          <Property Name="ACCOUNT_TYPE_ID" Type="int" Nullable="false" />
           <Property Name="ACCOUNT_TYPE_FINAL_STATUS" Type="smallint" />
         </EntityType>
         <EntityType Name="____TEMP002">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="request_id" Type="bigint" />
-          <Property Name="partner_request_id" MaxLength="10" Type="varchar" />
+          <Property Name="partner_request_id" Type="varchar" MaxLength="10" />
           <Property Name="partner_id" Type="int" />
           <Property Name="card_type_id" Type="smallint" />
-          <Property Name="carrier_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="envelope_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="plastic_type_id" MaxLength="100" Type="varchar" />
-          <Property Name="attachement_id" MaxLength="100" Type="varchar" />
-          <Property Name="package_attachement_id" MaxLength="100" Type="varchar" />
-          <Property Name="delivery_list_id" MaxLength="100" Type="varchar" />
+          <Property Name="carrier_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="envelope_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="plastic_type_id" Type="varchar" MaxLength="100" />
+          <Property Name="attachement_id" Type="varchar" MaxLength="100" />
+          <Property Name="package_attachement_id" Type="varchar" MaxLength="100" />
+          <Property Name="delivery_list_id" Type="varchar" MaxLength="100" />
           <Property Name="card_count" Type="int" />
           <Property Name="valid_to" Type="date" />
           <Property Name="content" Type="xml" />
@@ -265,88 +265,118 @@
           <Property Name="request_status" Type="tinyint" />
           <Property Name="change_time" Type="datetime" />
         </EntityType>
+        <EntityType Name="___APPLICATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SHORTNAME" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="BY_PARTNER" Type="bit" Nullable="false" />
+          <Property Name="PARTNER_ID" Type="int" />
+          <Property Name="STATUS" Type="bit" Nullable="false" />
+          <Property Name="LASTUPDATED" Type="datetime" />
+          <Property Name="IS_PERIODICALLY_EXECUTED" Type="bit" Nullable="false" />
+          <Property Name="TIME_INTERVAL" Type="int" />
+          <Property Name="TOLERANCE_PERIOD" Type="int" />
+          <Property Name="INSERTED" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="___CARD">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
-          <Property Name="partner_id" Nullable="false" Type="int" />
-          <Property Name="partner_card_id" Nullable="false" Type="bigint" />
-          <Property Name="batch_time" Nullable="false" Type="datetime" />
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="partner_id" Type="int" Nullable="false" />
+          <Property Name="partner_card_id" Type="bigint" Nullable="false" />
+          <Property Name="batch_time" Type="datetime" Nullable="false" />
           <Property Name="status" Type="tinyint" />
         </EntityType>
         <EntityType Name="___CONSTANT_PARTNER">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" Type="int" />
-          <Property Name="partner_id" Nullable="false" Type="int" />
-          <Property Name="constant_name" Nullable="false" MaxLength="100" Type="varchar" />
-          <Property Name="constant_value" Nullable="false" MaxLength="100" Type="varchar" />
-          <Property Name="insert_date" Nullable="false" Type="datetime" />
-          <Property Name="last_update_date" Nullable="false" Type="datetime" />
-          <Property Name="constant_description" MaxLength="50" Type="varchar" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="partner_id" Type="int" Nullable="false" />
+          <Property Name="constant_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="constant_value" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="last_update_date" Type="datetime" Nullable="false" />
+          <Property Name="constant_description" Type="varchar" MaxLength="50" />
+          <Property Name="material_id" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="___CONSTANT_UNIVERSAL">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" Type="int" />
-          <Property Name="constant_name" Nullable="false" MaxLength="100" Type="varchar" />
-          <Property Name="constant_value" Nullable="false" Type="int" />
-          <Property Name="constant_description" Nullable="false" MaxLength="100" Type="varchar" />
-          <Property Name="insert_date" Nullable="false" Type="datetime" />
-          <Property Name="last_update_date" Nullable="false" Type="datetime" />
-          <Property Name="additional_value1" MaxLength="100" Type="varchar" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="constant_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="constant_value" Type="int" Nullable="false" />
+          <Property Name="constant_description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="insert_date" Type="datetime" Nullable="false" />
+          <Property Name="last_update_date" Type="datetime" Nullable="false" />
+          <Property Name="additional_value1" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="___EXPORT_MAP">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Nullable="false" Type="bigint" />
-          <Property Name="CONSTANT_NAME" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="CONSTANT_VALUE" Nullable="false" MaxLength="50" Type="varchar" />
-          <Property Name="CONSTANT_DESCRIPTION" MaxLength="500" Type="varchar" />
-          <Property Name="TEMPLATE_FILE_NAME" MaxLength="100" Type="varchar" />
-          <Property Name="ADDITIONAL_COLUMN1" MaxLength="100" Type="varchar" />
-          <Property Name="ADDITIONAL_COLUMN2" MaxLength="100" Type="varchar" />
-          <Property Name="INSERTDATETIME" Nullable="false" Type="datetime" />
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="CONSTANT_NAME" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CONSTANT_VALUE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CONSTANT_DESCRIPTION" Type="varchar" MaxLength="500" />
+          <Property Name="TEMPLATE_FILE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="ADDITIONAL_COLUMN1" Type="varchar" MaxLength="100" />
+          <Property Name="ADDITIONAL_COLUMN2" Type="varchar" MaxLength="100" />
+          <Property Name="INSERTDATETIME" Type="datetime" Nullable="false" />
           <Property Name="LASTUPDATEDATETIME" Type="datetime" />
         </EntityType>
         <EntityType Name="___HOLIDAY">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" Type="int" />
-          <Property Name="month" Nullable="false" Type="tinyint" />
-          <Property Name="day" Nullable="false" Type="tinyint" />
-          <Property Name="description" MaxLength="100" Type="varchar" />
-          <Property Name="insertdatetime" Nullable="false" Type="datetime" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="month" Type="tinyint" Nullable="false" />
+          <Property Name="day" Type="tinyint" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" />
+          <Property Name="insertdatetime" Type="datetime" Nullable="false" />
           <Property Name="lastupdatedatetime" Type="datetime" />
-          <Property Name="country" Nullable="false" MaxLength="100" Type="varchar" />
+          <Property Name="country" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="___NOTIFICATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="APP_ID" Type="int" Nullable="false" />
+          <Property Name="INSERTED" Type="datetime" Nullable="false" />
+          <Property Name="LASTUPDATED" Type="datetime" />
+          <Property Name="NOTIFICATION_TYPE_ID" Type="tinyint" Nullable="false" />
+          <Property Name="SUBJECT" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MESSAGE" Type="varchar(max)" Nullable="false" />
+          <Property Name="STATUS" Type="tinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="___PARTNER">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="partner_type_id" Nullable="false" Type="tinyint" />
-          <Property Name="code" Nullable="false" MaxLength="3" Type="varchar" />
-          <Property Name="organization_name" Nullable="false" MaxLength="100" Type="varchar" />
-          <Property Name="creation_datetime" Nullable="false" Type="datetime" />
-          <Property Name="integrity_constant" Nullable="false" Type="int" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="partner_type_id" Type="tinyint" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="organization_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="creation_datetime" Type="datetime" Nullable="false" />
+          <Property Name="integrity_constant" Type="int" Nullable="false" />
           <Property Name="rw_id" Type="int" />
         </EntityType>
         <EntityType Name="___PARTNER_TYPE">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="tinyint" />
-          <Property Name="flag" Nullable="false" MaxLength="10" Type="varchar" />
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flag" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK____CARD_partner_id">
-          <End Type="Self.___PARTNER" Multiplicity="1" Role="___PARTNER" />
-          <End Type="Self.___CARD" Multiplicity="*" Role="___CARD" />
+          <End Role="___PARTNER" Type="Self.___PARTNER" Multiplicity="1" />
+          <End Role="___CARD" Type="Self.___CARD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="___PARTNER">
               <PropertyRef Name="id" />
@@ -357,8 +387,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK____CONSTANT_PARTNER_partner_id">
-          <End Type="Self.___PARTNER" Multiplicity="1" Role="___PARTNER" />
-          <End Type="Self.___CONSTANT_PARTNER" Multiplicity="*" Role="___CONSTANT_PARTNER" />
+          <End Role="___PARTNER" Type="Self.___PARTNER" Multiplicity="1" />
+          <End Role="___CONSTANT_PARTNER" Type="Self.___CONSTANT_PARTNER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="___PARTNER">
               <PropertyRef Name="id" />
@@ -368,9 +398,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK____NOTIFICATION____APPLICATION">
+          <End Role="___APPLICATION" Type="Self.___APPLICATION" Multiplicity="1" />
+          <End Role="___NOTIFICATION" Type="Self.___NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="___APPLICATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="___NOTIFICATION">
+              <PropertyRef Name="APP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK____PARTNER_partner_type_id">
-          <End Type="Self.___PARTNER_TYPE" Multiplicity="1" Role="___PARTNER_TYPE" />
-          <End Type="Self.___PARTNER" Multiplicity="*" Role="___PARTNER" />
+          <End Role="___PARTNER_TYPE" Type="Self.___PARTNER_TYPE" Multiplicity="1" />
+          <End Role="___PARTNER" Type="Self.___PARTNER" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="___PARTNER_TYPE">
               <PropertyRef Name="id" />
@@ -395,24 +437,30 @@
           <EntitySet Name="____REQ004" EntityType="Self.____REQ004" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="____REQ008" EntityType="Self.____REQ008" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="____TEMP002" EntityType="Self.____TEMP002" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="___APPLICATION" EntityType="Self.___APPLICATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___CARD" EntityType="Self.___CARD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___CONSTANT_PARTNER" EntityType="Self.___CONSTANT_PARTNER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___CONSTANT_UNIVERSAL" EntityType="Self.___CONSTANT_UNIVERSAL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___EXPORT_MAP" EntityType="Self.___EXPORT_MAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___HOLIDAY" EntityType="Self.___HOLIDAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="___NOTIFICATION" EntityType="Self.___NOTIFICATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___PARTNER" EntityType="Self.___PARTNER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="___PARTNER_TYPE" EntityType="Self.___PARTNER_TYPE" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK____CARD_partner_id" Association="Self.FK____CARD_partner_id">
-            <End EntitySet="___PARTNER" Role="___PARTNER" />
-            <End EntitySet="___CARD" Role="___CARD" />
+            <End Role="___PARTNER" EntitySet="___PARTNER" />
+            <End Role="___CARD" EntitySet="___CARD" />
           </AssociationSet>
           <AssociationSet Name="FK____CONSTANT_PARTNER_partner_id" Association="Self.FK____CONSTANT_PARTNER_partner_id">
-            <End EntitySet="___PARTNER" Role="___PARTNER" />
-            <End EntitySet="___CONSTANT_PARTNER" Role="___CONSTANT_PARTNER" />
+            <End Role="___PARTNER" EntitySet="___PARTNER" />
+            <End Role="___CONSTANT_PARTNER" EntitySet="___CONSTANT_PARTNER" />
+          </AssociationSet>
+          <AssociationSet Name="FK____NOTIFICATION____APPLICATION" Association="Self.FK____NOTIFICATION____APPLICATION">
+            <End Role="___APPLICATION" EntitySet="___APPLICATION" />
+            <End Role="___NOTIFICATION" EntitySet="___NOTIFICATION" />
           </AssociationSet>
           <AssociationSet Name="FK____PARTNER_partner_type_id" Association="Self.FK____PARTNER_partner_type_id">
-            <End EntitySet="___PARTNER_TYPE" Role="___PARTNER_TYPE" />
-            <End EntitySet="___PARTNER" Role="___PARTNER" />
+            <End Role="___PARTNER_TYPE" EntitySet="___PARTNER_TYPE" />
+            <End Role="___PARTNER" EntitySet="___PARTNER" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -452,6 +500,12 @@
           <AssociationSet Name="FK____PARTNER_partner_type_id" Association="test1Model.FK____PARTNER_partner_type_id">
             <End Role="C___PARTNER_TYPE" EntitySet="C___PARTNER_TYPE" />
             <End Role="C___PARTNER" EntitySet="C___PARTNER" />
+          </AssociationSet>
+          <EntitySet Name="C___NOTIFICATION" EntityType="test1Model.C___NOTIFICATION" />
+          <EntitySet Name="C___APPLICATION" EntityType="test1Model.C___APPLICATION" />
+          <AssociationSet Name="FK____NOTIFICATION____APPLICATION" Association="test1Model.FK____NOTIFICATION____APPLICATION">
+            <End Role="C___APPLICATION" EntitySet="C___APPLICATION" />
+            <End Role="C___NOTIFICATION" EntitySet="C___NOTIFICATION" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="C____ANS001">
@@ -737,6 +791,7 @@
           <Property Name="last_update_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="constant_description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="C___PARTNER" Relationship="test1Model.FK____CONSTANT_PARTNER_partner_id" FromRole="C___CONSTANT_PARTNER" ToRole="C___PARTNER" />
+          <Property Name="material_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="C___CONSTANT_UNIVERSAL">
           <Key>
@@ -832,6 +887,49 @@
             </Principal>
             <Dependent Role="C___PARTNER">
               <PropertyRef Name="partner_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="C___NOTIFICATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="APP_ID" Type="Int32" Nullable="false" />
+          <Property Name="INSERTED" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="NOTIFICATION_TYPE_ID" Type="Byte" Nullable="false" />
+          <Property Name="SUBJECT" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="C___APPLICATION" Relationship="test1Model.FK____NOTIFICATION____APPLICATION" FromRole="C___NOTIFICATION" ToRole="C___APPLICATION" />
+        </EntityType>
+        <EntityType Name="C___APPLICATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SHORTNAME" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BY_PARTNER" Type="Boolean" Nullable="false" />
+          <Property Name="PARTNER_ID" Type="Int32" />
+          <Property Name="STATUS" Type="Boolean" Nullable="false" />
+          <Property Name="LASTUPDATED" Type="DateTime" Precision="3" />
+          <Property Name="IS_PERIODICALLY_EXECUTED" Type="Boolean" Nullable="false" />
+          <Property Name="TIME_INTERVAL" Type="Int32" />
+          <Property Name="TOLERANCE_PERIOD" Type="Int32" />
+          <Property Name="INSERTED" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="C___NOTIFICATION" Relationship="test1Model.FK____NOTIFICATION____APPLICATION" FromRole="C___APPLICATION" ToRole="C___NOTIFICATION" />
+        </EntityType>
+        <Association Name="FK____NOTIFICATION____APPLICATION">
+          <End Type="test1Model.C___APPLICATION" Role="C___APPLICATION" Multiplicity="1" />
+          <End Type="test1Model.C___NOTIFICATION" Role="C___NOTIFICATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C___APPLICATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="C___NOTIFICATION">
+              <PropertyRef Name="APP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1129,6 +1227,7 @@
           <EntitySetMapping Name="C___CONSTANT_PARTNER">
             <EntityTypeMapping TypeName="test1Model.C___CONSTANT_PARTNER">
               <MappingFragment StoreEntitySet="___CONSTANT_PARTNER">
+                <ScalarProperty Name="material_id" ColumnName="material_id" />
                 <ScalarProperty Name="constant_description" ColumnName="constant_description" />
                 <ScalarProperty Name="last_update_date" ColumnName="last_update_date" />
                 <ScalarProperty Name="insert_date" ColumnName="insert_date" />
@@ -1198,6 +1297,37 @@
               <MappingFragment StoreEntitySet="___PARTNER_TYPE">
                 <ScalarProperty Name="flag" ColumnName="flag" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C___NOTIFICATION">
+            <EntityTypeMapping TypeName="test1Model.C___NOTIFICATION">
+              <MappingFragment StoreEntitySet="___NOTIFICATION">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="NOTIFICATION_TYPE_ID" ColumnName="NOTIFICATION_TYPE_ID" />
+                <ScalarProperty Name="LASTUPDATED" ColumnName="LASTUPDATED" />
+                <ScalarProperty Name="INSERTED" ColumnName="INSERTED" />
+                <ScalarProperty Name="APP_ID" ColumnName="APP_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C___APPLICATION">
+            <EntityTypeMapping TypeName="test1Model.C___APPLICATION">
+              <MappingFragment StoreEntitySet="___APPLICATION">
+                <ScalarProperty Name="INSERTED" ColumnName="INSERTED" />
+                <ScalarProperty Name="TOLERANCE_PERIOD" ColumnName="TOLERANCE_PERIOD" />
+                <ScalarProperty Name="TIME_INTERVAL" ColumnName="TIME_INTERVAL" />
+                <ScalarProperty Name="IS_PERIODICALLY_EXECUTED" ColumnName="IS_PERIODICALLY_EXECUTED" />
+                <ScalarProperty Name="LASTUPDATED" ColumnName="LASTUPDATED" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PARTNER_ID" ColumnName="PARTNER_ID" />
+                <ScalarProperty Name="BY_PARTNER" ColumnName="BY_PARTNER" />
+                <ScalarProperty Name="SHORTNAME" ColumnName="SHORTNAME" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

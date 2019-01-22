@@ -29,6 +29,9 @@
         <AssociationConnector Association="test1Model.FK____CARD_partner_id" />
         <AssociationConnector Association="test1Model.FK____CONSTANT_PARTNER_partner_id" />
         <AssociationConnector Association="test1Model.FK____PARTNER_partner_type_id" />
+        <EntityTypeShape EntityType="test1Model.C___NOTIFICATION" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="test1Model.C___APPLICATION" Width="1.5" PointX="3.125" PointY="17.5" />
+        <AssociationConnector Association="test1Model.FK____NOTIFICATION____APPLICATION" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -266,6 +266,8 @@
     <Compile Include="Controllers\ErrorHandlerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PosAcceptanceController.cs" />
+    <Compile Include="Controllers\SystemLogController.cs" />
+    <Compile Include="BusinessLayer\SystemLogEngine.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="CORPORATECUSTOMER.cs">
       <DependentUpon>RewardoDB.tt</DependentUpon>
@@ -288,6 +290,9 @@
     <Compile Include="CUSTOMERPRIVATEINFO.cs">
       <DependentUpon>RewardoDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="C___APPLICATION.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="C___CARD.cs">
       <DependentUpon>test1Model.tt</DependentUpon>
     </Compile>
@@ -301,6 +306,9 @@
       <DependentUpon>test1Model.tt</DependentUpon>
     </Compile>
     <Compile Include="C___HOLIDAY.cs">
+      <DependentUpon>test1Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C___NOTIFICATION.cs">
       <DependentUpon>test1Model.tt</DependentUpon>
     </Compile>
     <Compile Include="C___PARTNER.cs">
@@ -383,6 +391,7 @@
     <Compile Include="MERCHANT_CATEGORY_GROUP.cs">
       <DependentUpon>RewardoDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Application.cs" />
     <Compile Include="Models\CardOrderAnswer.cs" />
     <Compile Include="Models\CardOrderDetailsPhotoGallery.cs" />
     <Compile Include="Models\CardOrderRequest.cs" />
@@ -397,6 +406,7 @@
     <Compile Include="Models\CreditOrderAnswer.cs" />
     <Compile Include="BusinessLayer\CreditOrderEngine.cs" />
     <Compile Include="Models\CreditOrderRequest.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Partner.cs" />
     <Compile Include="Models\PosAcceptanceAnswer.cs" />
     <Compile Include="BusinessLayer\PosAcceptanceEngine.cs" />
@@ -475,6 +485,7 @@
     <Compile Include="USER_ORGANIZATION_MAP.cs">
       <DependentUpon>RewardoDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ApplicationViewModel.cs" />
     <Compile Include="ViewModel\CardOrderListViewModel.cs" />
     <Compile Include="ViewModel\CardOrderViewModel.cs" />
     <Compile Include="ViewModel\CardStatusUpdateListViewModel.cs" />
@@ -484,6 +495,8 @@
     <Compile Include="ViewModel\CreditOrderListViewModel.cs" />
     <Compile Include="ViewModel\CreditOrderViewModel.cs" />
     <Compile Include="ViewModel\HomePageViewModel.cs" />
+    <Compile Include="ViewModel\NotificationListViewModel.cs" />
+    <Compile Include="ViewModel\NotificationViewModel.cs" />
     <Compile Include="ViewModel\PosAcceptanceListViewModel.cs" />
     <Compile Include="ViewModel\PosAcceptanceViewModel.cs" />
     <Compile Include="ViewModel\RewardoCardListViewModel.cs" />
@@ -586,6 +599,8 @@
     <Content Include="Views\CardStatusUpdate\_CardStatusUpdateTable.cshtml" />
     <Content Include="Views\Shared\_CardOrderItem.cshtml" />
     <Content Include="Views\CardTransfer\Index.cshtml" />
+    <Content Include="Views\SystemLog\Index.cshtml" />
+    <Content Include="Views\SystemLog\_SystemLogTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

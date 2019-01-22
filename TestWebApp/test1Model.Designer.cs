@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\skok\Projects\_CNWP\db_dev\TestWebApp_1_debug\TestWebApp\test1Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\skok\Documents\_my_folders\Projects_GIT\_CNWP\TestWebApp\test1Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

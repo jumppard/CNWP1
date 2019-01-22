@@ -42,6 +42,12 @@ namespace TestWebApp.DataAccessLayer
 
         private List<Partner> m_partners;
 
+        // NOTIFICATION
+        private List<Notification> m_notifications;
+
+        // APPLICATION
+        private List<Application> m_applications;
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -57,10 +63,70 @@ namespace TestWebApp.DataAccessLayer
             if (item == "constantUniversals") { retrieveConstantUniversal(); }
             else
             if (item == "constantPartners") { retrieveConstantPartner(); }
-            
+            else
+            if (item == "notifications") { retrieveNotification(); }
+            else
+            if (item == "applications") { retrieveApplication(); }
+
 
             retrieveRequests(item);
             retrieveAnswers(item);
+        }
+
+        private void retrieveApplication()
+        {
+            var pomList = m_cardnetDB.C___APPLICATION.ToList();
+            m_applications = new List<Application>();
+
+            if (m_partners == null)
+            {
+                retrievePartners();
+            }
+
+            foreach (var app in pomList)
+            {
+                Application application = new Application();
+
+                application.ByPartner = app.BY_PARTNER;
+                application.ID = app.ID;
+                application.Inserted = app.INSERTED;
+                application.LastUpdated = app.LASTUPDATED;
+                application.IsPeriodicallyExecuted = app.IS_PERIODICALLY_EXECUTED;
+                application.Name = app.NAME;
+                application.PartnerId = app.PARTNER_ID;
+                application.ShortName = app.SHORTNAME;
+                application.Status = app.STATUS;
+                application.TimeInterval = app.TIME_INTERVAL;
+                application.TolerancePeriod = app.TOLERANCE_PERIOD;
+
+                m_applications.Add(application);
+            }
+        }
+
+        public void retrieveNotification()
+        {
+            var pomList = m_cardnetDB.C___NOTIFICATION.ToList();
+            m_notifications = new List<Notification>();
+
+            if (m_partners == null)
+            {
+                retrievePartners();
+            }
+
+            foreach (var notification in pomList)
+            {
+                Notification notif = new Notification();
+
+                notif.AppId = notif.AppId;
+                notif.ID = notif.ID;
+                notif.Inserted = notif.Inserted;
+                notif.LastUpdated = notif.LastUpdated;
+                notif.Status = notif.Status;
+                notif.Subject = notif.Subject;
+                notif.NotificationTypeId = notif.NotificationTypeId;
+
+                m_notifications.Add(notif);
+            }
         }
 
         // returns order's partner name
@@ -798,6 +864,8 @@ namespace TestWebApp.DataAccessLayer
         public List<Partner> getPartners() { return m_partners; }
         public List<ConstantUniversal> getConstantUniversals() { return m_constantUniversal; }
         public List<ConstantPartner> getConstantPartner() { return m_constantPartner; }
+        public List<Notification> getNotification() { return m_notifications; }
+        public List<Application> getApplication() { return m_applications; }
 
         public test1Entities getCardnetDB() { return m_cardnetDB; }
     }

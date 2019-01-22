@@ -46,5 +46,7 @@ namespace TestWebApp
         public virtual DbSet<C___HOLIDAY> C___HOLIDAY { get; set; }
         public virtual DbSet<C___PARTNER> C___PARTNER { get; set; }
         public virtual DbSet<C___PARTNER_TYPE> C___PARTNER_TYPE { get; set; }
+        public virtual DbSet<C___NOTIFICATION> C___NOTIFICATION { get; set; }
+        public virtual DbSet<C___APPLICATION> C___APPLICATION { get; set; }
     }
 }

@@ -12,17 +12,17 @@ namespace TestWebApp
     using System;
     using System.Collections.Generic;
     
-    public partial class C___CONSTANT_PARTNER
+    public partial class C___NOTIFICATION
     {
-        public int id { get; set; }
-        public int partner_id { get; set; }
-        public string constant_name { get; set; }
-        public string constant_value { get; set; }
-        public System.DateTime insert_date { get; set; }
-        public System.DateTime last_update_date { get; set; }
-        public string constant_description { get; set; }
-        public string material_id { get; set; }
+        public long ID { get; set; }
+        public int APP_ID { get; set; }
+        public System.DateTime INSERTED { get; set; }
+        public Nullable<System.DateTime> LASTUPDATED { get; set; }
+        public byte NOTIFICATION_TYPE_ID { get; set; }
+        public string SUBJECT { get; set; }
+        public string MESSAGE { get; set; }
+        public byte STATUS { get; set; }
     
-        public virtual C___PARTNER C___PARTNER { get; set; }
+        public virtual C___APPLICATION C___APPLICATION { get; set; }
     }
 }
